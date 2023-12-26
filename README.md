@@ -1,31 +1,6 @@
 # 📌 기업의 할 일(Todo) 관리 페이지 만들기
 
-주어진 API를 활용해 '[완성 예시](https://todo-vite-vue3-composition-ts.vercel.app/)' 처럼 자유롭게 기업의 할 일 관리(Todo) 기능을 구현해보세요!    
-과제 수행 및 리뷰 기간은 별도 공지를 참고하세요!
-
-## 과제 수행 및 제출 방법
-
-```
-// KDT기수번호_이름
-KDT99_ParkYoungWoong
-```
-
-1. 현재 저장소를 로컬에 클론(Clone)합니다.
-1. 자신의 본명으로 브랜치를 생성합니다.(구분 가능하도록 본명을 꼭 파스칼케이스로 표시하세요, `git branch KDTX_ParkYoungWoong`)
-1. 자신의 본명 브랜치에서 과제를 수행합니다.
-1. 과제 수행이 완료되면, 자신의 본명 브랜치를 원격 저장소에 푸시(Push)합니다.(`main` 브랜치에 푸시하지 않도록 꼭 주의하세요, `git push origin KDTX_ParkYoungWoong`)
-1. 저장소에서 `main` 브랜치를 대상으로 Pull Request 생성하면, 과제 제출이 완료됩니다!(E.g, `main` <== `KDTX_ParkYoungWoong`)
-
-- `main` 혹은 다른 사람의 브랜치로 절대 병합하지 않도록 주의하세요!
-- Pull Request에서 보이는 설명을 다른 사람들이 이해하기 쉽도록 꼼꼼하게 작성하세요!
-- Pull Request에서 과제 제출 후 절대 병합(Merge)하지 않도록 주의하세요!
-- 과제 수행 및 제출 과정에서 문제가 발생한 경우, 바로 담당 멘토나 강사에서 얘기하세요!
-
 ## 요구사항
-
-필수 요구사항은 꼭 달성해야 하는 목표로, 수정/삭제는 불가하고 추가는 가능합니다.    
-선택 요구사항은 단순 예시로, 자유롭게 추가/수정/삭제해서 구현해보세요.  
-각 요구사항은 달성 후 마크다운에서 `- [x]`로 표시하세요.
 
 ### ❗ 필수
 
@@ -65,21 +40,24 @@ API 사용 예시:
 
 ```js
 async function createTodo() {
-  const res = await fetch('https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'apikey': 'KDT7_GrZ1eYBo', // KDT 7기 APIKEY 입니다!
-      'username': 'KDT7_ParkYoungWoong'
-    },
-    body: JSON.stringify({
-      title: '아침 먹기!'
-    })
-  })
-  const json = await res.json()
-  console.log(json)
+	const res = await fetch(
+		'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
+		{
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+				apikey: 'KDT7_GrZ1eYBo', // KDT 7기 APIKEY 입니다!
+				username: 'KDT7_ParkYoungWoong'
+			},
+			body: JSON.stringify({
+				title: '아침 먹기!'
+			})
+		}
+	)
+	const json = await res.json()
+	console.log(json)
 
-  return json
+	return json
 }
 ```
 
@@ -102,41 +80,41 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos
 type ResponseValue = Todo[] // 할 일 목록
 
 interface Todo {
-  id: string // 할 일 ID
-  order: number // 할 일 순서
-  title: string // 할 일 제목
-  done: boolean // 할 일 완료 여부
-  createdAt: string // 할 일 생성일
-  updatedAt: string // 할 일 수정일
+	id: string // 할 일 ID
+	order: number // 할 일 순서
+	title: string // 할 일 제목
+	done: boolean // 할 일 완료 여부
+	createdAt: string // 할 일 생성일
+	updatedAt: string // 할 일 수정일
 }
 ```
 
 ```json
 [
-  {
-    "id": "mnIwaAPIAE1ayQmqekiR",
-    "order": 0,
-    "title": "JS 공부하기",
-    "done": false,
-    "createdAt": "2021-10-28T05:18:51.868Z",
-    "updatedAt": "2021-10-28T05:18:51.868Z"
-  },
-  {
-    "id": "tMzPImGoWtRdJ6yyVv2y",
-    "order": 1,
-    "title": "과제 PullRequest(PR) 생성",
-    "done": true,
-    "createdAt": "2021-10-28T04:16:53.980Z",
-    "updatedAt": "2021-10-28T09:40:17.955Z"
-  },
-  {
-    "id": "Rq8BebKihCgteHHhMIRS",
-    "order": 2,
-    "title": "API 스터디",
-    "done": false,
-    "createdAt": "2021-10-28T04:17:02.510Z",
-    "updatedAt": "2021-10-28T04:17:02.510Z"
-  }
+	{
+		"id": "mnIwaAPIAE1ayQmqekiR",
+		"order": 0,
+		"title": "JS 공부하기",
+		"done": false,
+		"createdAt": "2021-10-28T05:18:51.868Z",
+		"updatedAt": "2021-10-28T05:18:51.868Z"
+	},
+	{
+		"id": "tMzPImGoWtRdJ6yyVv2y",
+		"order": 1,
+		"title": "과제 PullRequest(PR) 생성",
+		"done": true,
+		"createdAt": "2021-10-28T04:16:53.980Z",
+		"updatedAt": "2021-10-28T09:40:17.955Z"
+	},
+	{
+		"id": "Rq8BebKihCgteHHhMIRS",
+		"order": 2,
+		"title": "API 스터디",
+		"done": false,
+		"createdAt": "2021-10-28T04:17:02.510Z",
+		"updatedAt": "2021-10-28T04:17:02.510Z"
+	}
 ]
 ```
 
@@ -153,15 +131,15 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos
 
 ```ts
 interface RequestBody {
-  title: string // 할 일 제목 (필수!)
-  order?: number // 할 일 순서
+	title: string // 할 일 제목 (필수!)
+	order?: number // 할 일 순서
 }
 ```
 
 ```json
 {
-  "title": "KDT 과정 설계 미팅",
-  "order": 2
+	"title": "KDT 과정 설계 미팅",
+	"order": 2
 }
 ```
 
@@ -169,23 +147,23 @@ interface RequestBody {
 
 ```ts
 interface ResponseValue {
-  id: string
-  order: number
-  title: string
-  done: boolean
-  createdAt: string
-  updatedAt: string
+	id: string
+	order: number
+	title: string
+	done: boolean
+	createdAt: string
+	updatedAt: string
 }
 ```
 
 ```json
 {
-  "id": "7P8dOM4voAv8a8cfoeKZ",
-  "order": 0,
-  "title": "KDT 과정 설계 미팅",
-  "done": false,
-  "createdAt": "2021-10-29T07:20:02.749Z",
-  "updatedAt": "2021-10-29T07:20:02.749Z"
+	"id": "7P8dOM4voAv8a8cfoeKZ",
+	"order": 0,
+	"title": "KDT 과정 설계 미팅",
+	"done": false,
+	"createdAt": "2021-10-29T07:20:02.749Z",
+	"updatedAt": "2021-10-29T07:20:02.749Z"
 }
 ```
 
@@ -202,17 +180,17 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/:todoId
 
 ```ts
 interface RequestBody {
-  title: string // 할 일 제목 (필수!)
-  done: boolean // 할 일 완료 여부 (필수!)
-  order?: number // 할 일 순서
+	title: string // 할 일 제목 (필수!)
+	done: boolean // 할 일 완료 여부 (필수!)
+	order?: number // 할 일 순서
 }
 ```
 
 ```json
 {
-  "title": "Bootstrap 스타일 추가",
-  "done": false,
-  "order": 2
+	"title": "Bootstrap 스타일 추가",
+	"done": false,
+	"order": 2
 }
 ```
 
@@ -220,12 +198,12 @@ interface RequestBody {
 
 ```json
 {
-  "id": "7P8dOM4voAv8a8cfoeKZ",
-  "title": "Bootstrap 스타일 추가",
-  "done": false,
-  "order": 2,
-  "createdAt": "2021-10-29T07:20:02.749Z",
-  "updatedAt": "2021-10-29T07:20:02.749Z"
+	"id": "7P8dOM4voAv8a8cfoeKZ",
+	"title": "Bootstrap 스타일 추가",
+	"done": false,
+	"order": 2,
+	"createdAt": "2021-10-29T07:20:02.749Z",
+	"updatedAt": "2021-10-29T07:20:02.749Z"
 }
 ```
 
@@ -259,18 +237,18 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/deletions
 
 ```ts
 interface RequestBody {
-  todoIds: string[] // 삭제할 할 일 ID 목록 (필수!)
+	todoIds: string[] // 삭제할 할 일 ID 목록 (필수!)
 }
 ```
 
 ```json
 {
-  "todoIds": [
-    "mnIwaAPIAE1ayQmqekiR",
-    "tMzPImGoWtRdJ6yyVv2y",
-    "GHrvr3LaPx1g7y2sNuaC",
-    "Rq8BebKihCgteHHhMIRS"
-  ]
+	"todoIds": [
+		"mnIwaAPIAE1ayQmqekiR",
+		"tMzPImGoWtRdJ6yyVv2y",
+		"GHrvr3LaPx1g7y2sNuaC",
+		"Rq8BebKihCgteHHhMIRS"
+	]
 }
 ```
 
@@ -293,18 +271,18 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/reorder
 
 ```ts
 interface RequestBody {
-  todoIds: string[] // 새롭게 정렬할 할 일 ID 목록 (필수!)
+	todoIds: string[] // 새롭게 정렬할 할 일 ID 목록 (필수!)
 }
 ```
 
 ```json
 {
-  "todoIds": [
-    "mnIwaAPIAE1ayQmqekiR",
-    "tMzPImGoWtRdJ6yyVv2y",
-    "GHrvr3LaPx1g7y2sNuaC",
-    "Rq8BebKihCgteHHhMIRS"
-  ]
+	"todoIds": [
+		"mnIwaAPIAE1ayQmqekiR",
+		"tMzPImGoWtRdJ6yyVv2y",
+		"GHrvr3LaPx1g7y2sNuaC",
+		"Rq8BebKihCgteHHhMIRS"
+	]
 }
 ```
 
