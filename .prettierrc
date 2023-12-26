@@ -4,7 +4,17 @@
 	"singleQuote": true,
 	"singleAttributePerLine": true,
 	"bracketSameLine": true,
-	"endOfLine": "auto",
+	"endOfLine": "lf",
 	"trailingComma": "none",
-	"arrowParens": "avoid"
+	"arrowParens": "avoid",
+	"overrides": [
+		{
+			"files": "*.html",
+			"options": {
+				"printWidth": 200,
+				"htmlWhitespaceSensitivity": "ignore"
+			}
+		}
+	]
+	
 }
