@@ -1,20 +1,22 @@
 {
-  "name": "kdt7-m2",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.2",
-    "eslint-plugin-vue": "^9.19.2",
-    "prettier": "^3.1.1",
-    "sass": "^1.69.5",
-    "vite": "^5.0.8"
-  }
+	"name": "kdt7-m2",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.1.2",
+		"eslint-plugin-vue": "^9.19.2",
+		"prettier": "^3.1.1",
+		"sass": "^1.69.5"
+	},
+	"dependencies": {
+		"vite": "^5.0.10"
+	}
 }
