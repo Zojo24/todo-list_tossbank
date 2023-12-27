@@ -13,7 +13,7 @@ export class Component {
 }
 
 // router //
-function routerRender(routes) {
+function routeRender(routes) {
 	if (!location.hash) {
 		history.replaceState(null, '', '/#/')
 	}
@@ -30,23 +30,17 @@ function routerRender(routes) {
 	const currentRoute = routes.find(route =>
 		new RegExp(`${route.path}/?$`).test(hash)
 	)
-	if (currentRoute) {
-		routerView.innerHTML = ''
-		routerView.append(new currentRoute.component().el)
-	} else {
-		console.error(`No matching route found`)
-	}
-	// routerView.innerHTML = ''
-	// routerView.append(new currentRoute.component().el)
+	routerView.innerHTML = ''
+	routerView.append(new currentRoute.component().el)
 
 	window.scrollTo(0, 0)
 }
 export function createRouter(routes) {
 	return function () {
 		window.addEventListener('popstate', () => {
-			routerRender(routes)
+			routeRender(routes)
 		})
-		routerRender(routes)
+		routeRender(routes)
 	}
 }
 

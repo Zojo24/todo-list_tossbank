@@ -1,50 +1,24 @@
-body {
-	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+.about .photo {
+	width: 230px;
+	height: 230px;
+	margin: 0 auto 20px;
+	border-radius: 10px;
+	background-size: cover;
 }
-
-.header {
-	padding: 20px 40px;
-	position: sticky;
-	top: 0;
-	z-index: 5;
-	display: flex;
-	align-items: flex-end;
-	gap: 50px;
-
-	.logo {
-		text-decoration: none;
-		span {
-			color: aqua;
-		}
-	}
-
-	.nav {
-		ul {
-			display: flex;
-			gap: 20px;
-		}
-
-		li {
-			a {
-				font-size: 15px;
-				font-weight: 700;
-				color: #000000;
-				text-decoration: none;
-			}
-		}
-	}
-
-	.user {
-		width: 15px;
-		height: 15px;
-		border-radius: 50%;
-		cursor: pointer;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-
-		img {
-			width: 100%;
-		}
-	}
+.about .name {
+	font-family: 'Oswald', sans-serif;
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+.about p {
+	line-height: 1.5;
+	text-align: center;
+	margin-bottom: 4px;
+}
+.about a {
+	color: var(--color-primary);
+	text-decoration: none;
+}
+.about a:hover {
+	text-decoration: underline;
 }

@@ -4,5 +4,5 @@ import About from './About'
 
 export default createRouter([
 	{ path: '#/', component: Home },
-	{ path: '#/About', component: About }
+	{ path: '#/about', component: About }
 ])

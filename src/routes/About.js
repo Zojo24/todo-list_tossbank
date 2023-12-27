@@ -5,9 +5,8 @@ export default class About extends Component {
 	render() {
 		const { photo, name, email, blog } = Store.state
 
-		this.el.clasList.add('about')
+		this.el.classList.add('container', 'about')
 		this.el.innerHTML = /*html*/ `
-			<h1>Todo List</h1>
 			<div style="background-image: url(${photo})" class="photo"></div>
 			<p class="name">${name}</p>
 			<p>
