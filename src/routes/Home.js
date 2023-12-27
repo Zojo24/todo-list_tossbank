@@ -6,8 +6,7 @@ export default class Home extends Component {
 		this.el.innerHTML = '<h1>Todo List</h1>'
 
 		const todoListComponent = new TodoList()
-		await todoListHTML.render()
-
+		await todoListComponent.render()
 		this.el.append(todoListComponent.el)
 	}
 }

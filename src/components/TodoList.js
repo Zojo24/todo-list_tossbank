@@ -5,18 +5,7 @@ export default class TodoList extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			taskItems: [
-				{
-					type: '',
-					task: '',
-					startDate: '',
-					dueDate: '',
-					status: '',
-					output: '',
-					followUp: '',
-					manager: ''
-				}
-			]
+			taskItems: []
 		}
 	}
 	async render() {
@@ -26,10 +15,17 @@ export default class TodoList extends Component {
     `
 		const taskItemEl = this.el.querySelector('.taskItems')
 
-		this.state.taskItems.forEach(taskItem => {
-			const todoItem = new TodoItem({ taskItem })
-			todoItem.render()
-			taskItemsEl.append(todoItem.el)
-		})
+		if (Array.isArray(this.state.taskItems)) {
+			this.state.taskItems.forEach(taskItem => {
+				const todoItem = new TodoItem({ taskItem })
+				todoItem.render()
+				taskItemsEl.append(todoItem.el)
+			})
+		}
+		// this.state.taskItems.forEach(taskItem => {
+		// 	const todoItem = new TodoItem({ taskItem })
+		// 	todoItem.render()
+		// 	taskItemsEl.append(todoItem.el)
+		// })
 	}
 }

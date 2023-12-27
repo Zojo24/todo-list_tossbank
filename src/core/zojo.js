@@ -30,8 +30,14 @@ function routerRender(routes) {
 	const currentRoute = routes.find(route =>
 		new RegExp(`${route.path}/?$`).test(hash)
 	)
-	routerView.innerHTML = ''
-	routerView.append(new currentRoute.component().el)
+	if (currentRoute) {
+		routerView.innerHTML = ''
+		routerView.append(new currentRoute.component().el)
+	} else {
+		console.error(`No matching route found`)
+	}
+	// routerView.innerHTML = ''
+	// routerView.append(new currentRoute.component().el)
 
 	window.scrollTo(0, 0)
 }
