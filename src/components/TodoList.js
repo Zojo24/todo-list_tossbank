@@ -4,28 +4,32 @@ import TodoItem from './TodoItem'
 export default class TodoList extends Component {
 	constructor(props) {
 		super(props)
-    this.state = {
-      taskItems: [{ 
-        type: '', 
-        task: '', 
-        startDate: '', 
-        dueDate: '', 
-        status: '', 
-        output: '', 
-        followUp: '', 
-        manager: '' 
-      }]
+		this.state = {
+			taskItems: [
+				{
+					type: '',
+					task: '',
+					startDate: '',
+					dueDate: '',
+					status: '',
+					output: '',
+					followUp: '',
+					manager: ''
+				}
+			]
+		}
 	}
-	render() {
+	async render() {
 		this.el.classList.add('todo-list')
 		this.el.innerHTML = /* html */ `
-    <ul class="taskItems"></ul>
+      <ul class="taskItems"></ul>
     `
-    const taskItemEl = this.el.querySelector('.taskItems')
+		const taskItemEl = this.el.querySelector('.taskItems')
 
-    this.state.taskItems.forEach((taskItem) => {
-      const todoItem = new TodoItem({taskItem})
-      taskItemsEl.append(todoItem.el)
-    });
+		this.state.taskItems.forEach(taskItem => {
+			const todoItem = new TodoItem({ taskItem })
+			todoItem.render()
+			taskItemsEl.append(todoItem.el)
+		})
 	}
 }

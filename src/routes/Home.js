@@ -1,7 +1,13 @@
 import { Component } from '../core/zojo'
+import TodoList from '../components/TodoList'
 
 export default class Home extends Component {
-	render() {
-		this.el.innerHTML = '<h1>Home</h1>'
+	async render() {
+		this.el.innerHTML = '<h1>Todo List</h1>'
+
+		const todoListComponent = new TodoList()
+		await todoListHTML.render()
+
+		this.el.append(todoListComponent.el)
 	}
 }

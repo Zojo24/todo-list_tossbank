@@ -36,8 +36,8 @@ export default class TheHeader extends Component {
 						.join('')}
         </ul>
       </nav>
-      <a href="#/about" class="user">
-        <img src= "/public/Toss_Symbol_Primary.png" alt="user">
+      <!-- <a href="#/about" class="user">
+        <img src= "/public/Toss_Symbol_Primary.png" alt="user"> -->
       </a>
     `
 	}
