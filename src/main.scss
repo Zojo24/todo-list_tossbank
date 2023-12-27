@@ -1,24 +1,40 @@
-.about .photo {
-	width: 230px;
-	height: 230px;
-	margin: 0 auto 20px;
-	border-radius: 10px;
-	background-size: cover;
+.about {
+	.photo {
+		width: 230px;
+		height: 230px;
+		margin: 0 auto 20px;
+		border-radius: 10px;
+		background-size: cover;
+	}
+
+	.name {
+		font-family: 'Oswald', sans-serif;
+		font-size: 40px;
+		margin-bottom: 20px;
+	}
+
+	p {
+		line-height: 1.5;
+		text-align: center;
+		margin-bottom: 4px;
+	}
+
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
-.about .name {
-	font-family: 'Oswald', sans-serif;
-	font-size: 40px;
-	margin-bottom: 20px;
-}
-.about p {
-	line-height: 1.5;
-	text-align: center;
-	margin-bottom: 4px;
-}
-.about a {
-	color: var(--color-primary);
-	text-decoration: none;
-}
-.about a:hover {
-	text-decoration: underline;
+
+.todo-item {
+	.items {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 40px 0;
+		border: 2px solid rgba(112, 112, 112, 0.36);
+	}
 }
