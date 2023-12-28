@@ -6,7 +6,18 @@ export default class TodoItem extends Component {
 		super(props)
 	}
 	async createTodo() {
-		console.log('Creating Todo')
+		const newTodo = {
+			task: '',
+			dueDate: '',
+			status: '',
+			manager: ''
+		}
+		try {
+			const response = await CRUD.createTodo(newTodo)
+			console.log('Todo created successfully:', response)
+		} catch (error) {
+			console.error('Error creating todo:', error)
+		}
 	}
 	async render() {
 		this.el.classList.add('todo-item')
