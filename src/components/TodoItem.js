@@ -1,8 +1,12 @@
 import { Component } from '../core/zojo'
+import CRUD from '/api/todoAPI'
 
-export class TodoItem extends Component {
+export default class TodoItem extends Component {
 	constructor(props) {
 		super(props)
+	}
+	async createTodo() {
+		console.log('Creating Todo')
 	}
 	async render() {
 		this.el.classList.add('todo-item')

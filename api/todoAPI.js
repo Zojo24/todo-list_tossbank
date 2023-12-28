@@ -1,5 +1,5 @@
 //POST//
-export class CRUD {
+export default class CRUD {
 	async createTodo() {
 		const res = await fetch(
 			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
