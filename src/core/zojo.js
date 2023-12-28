@@ -31,7 +31,12 @@ function routeRender(routes) {
 		new RegExp(`${route.path}/?$`).test(hash)
 	)
 	routerView.innerHTML = ''
-	routerView.append(new currentRoute.component().el)
+
+	if (!currentRoute) {
+		routerView.append(new NotFoundElement())
+	} else {
+		routerView.append(new currentRoute.component().el)
+	}
 
 	window.scrollTo(0, 0)
 }

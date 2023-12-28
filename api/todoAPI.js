@@ -1,6 +1,6 @@
 //POST//
 export default class CRUD {
-	async createTodo() {
+	async createTodo(todoInput) {
 		const res = await fetch(
 			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
 			{
@@ -11,7 +11,7 @@ export default class CRUD {
 					username: 'KDT7_ChoiHongJoo'
 				},
 				body: JSON.stringify({
-					title: '',
+					title: todoInput.value,
 					order: ''
 				})
 			}
