@@ -10,7 +10,10 @@ export default class CRUD {
 					apikey: 'KDT7_GrZ1eYBo',
 					username: 'KDT7_ChoiHongJoo'
 				},
-				body: JSON.stringify({})
+				body: JSON.stringify({
+					title: '',
+					order: ''
+				})
 			}
 		)
 		const json = await res.json()

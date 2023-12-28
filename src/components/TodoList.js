@@ -14,10 +14,8 @@ export default class TodoList extends Component {
 		const todoItemsEl = this.el.querySelector('.todo-items')
 		const todos = [
 			{
-				task: '해야하는 일',
-				dueDate: '2023-12-28',
-				status: '진행중',
-				manager: 'Zoe'
+				title: '',
+				order: ''
 			}
 		]
 		todos.forEach(todo => {
