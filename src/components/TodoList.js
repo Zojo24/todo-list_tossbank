@@ -7,8 +7,9 @@ export default class TodoList extends Component {
 		this.crud = new CRUD()
 	}
 	//API POST//
-	async createTodo(taskInput, dateInput) {
-		const parameter = taskInput.value + '##' + dateInput.value
+	async createTodo(taskInput, dateInput, managerInput) {
+		const parameter =
+			taskInput.value + '##' + dateInput.value + '##' + managerInput.value
 
 		const res = await fetch(
 			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
@@ -31,10 +32,30 @@ export default class TodoList extends Component {
 		return json
 	}
 
-	//GET//
-	async readTodo() {
-		console.log('readTodo')
+	//API DELETE//
+	async deleteTodo(todoId) {
 		const res = await fetch(
+			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/' +
+				todoId,
+			{
+				method: 'DELETE',
+				headers: {
+					'content-type': 'application/json',
+					apikey: 'KDT7_GrZ1eYBo',
+					username: 'KDT7_ChoiHongJoo'
+				}
+			}
+		)
+		const json = await res.json()
+		console.log(json)
+
+		return json
+	}
+
+	//GET//
+	readTodo() {
+		console.log('readTodo')
+		const res = fetch(
 			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
 			{
 				method: 'GET',
@@ -51,29 +72,61 @@ export default class TodoList extends Component {
 				}
 				return response.json()
 			})
-			.then(data => console.log(data))
+			.then(data => this.getTodoList(data))
 			.catch(error => console.error('Fetch Error:', error))
 	}
 
-	//API DELETE//
-	async deleteTodo(todoId) {
-		const res = await fetch(
-			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/:todoId',
-			{
-				method: 'DELETE',
-				headers: {
-					'content-type': 'application/json',
-					apikey: 'KDT7_GrZ1eYBo',
-					username: 'KDT7_ChoiHongJoo'
-				}
-			}
-		)
-		const json = await res.json()
-		console.log(json)
+	getTodoList(data) {
+		console.log(data[3].title.split('##')[0])
+		console.log(data.length)
+		for (let i = 0; i < data.length; i++) {
+			this.el.innerHTML += /*html*/ `
+				<div>
+					<ul class="list-container">
+						<li class="list-input__item" style="display:none;">
+							<span>${data[i].id}</span>
+						</li>
+						<li class="list-input__item">
+							<span>${data[i].title.split('##')[0]}</span>
+						</li>
+						<li class="list-input__item">
+							<span>${data[i].title.split('##')[1]}</span>
+						</li>
+						<li class="list-input__item">
+							<span>${data[i].title.split('##')[2]}</span>
+						</li>
+						<button class="delete">
+							<span class="material-symbols-outlined">remove</span>
+						</button>
+					</ul>
+				</div>
+			`
+		}
 
-		return json
+		const taskInput = this.el.querySelector('.task-input')
+		const dateInput = this.el.querySelector('.date-input')
+		const managerInput = this.el.querySelector('.manager-input')
+
+		const addButton = this.el.querySelector('.add')
+		addButton.addEventListener('click', () =>
+			this.createTodo(taskInput, dateInput, managerInput)
+		)
+
+		const inputEl = this.el.querySelector('input')
+		inputEl.addEventListener('input', () => {
+			// store.state.todoText = inputEl.value
+		})
+
+		const deleteButtons = this.el.querySelectorAll('.delete')
+		deleteButtons.forEach(deleteButton => {
+			const todoId = deleteButton.parentNode.children
+				.item(0)
+				.children.item(0).innerHTML
+			deleteButton.addEventListener('click', () => this.deleteTodo(todoId))
+		})
 	}
-	//todoItem//
+
+	//todoList//
 	async render() {
 		this.el.classList.add('todo-list')
 		this.el.innerHTML = /*html*/ `
@@ -91,6 +144,7 @@ export default class TodoList extends Component {
 					</li>
 					<li> </li>
 				</ul>	
+
 				<ul class="list-input">
 					<li class="list-input__item">
 						<input class="task-input" placeholder="해야하는 작업을 작성해주세요."/>
@@ -99,7 +153,7 @@ export default class TodoList extends Component {
 						<input class="date-input" type="date">
 					</li>
 					<li class="list-input__item">
-						<input/>
+						<input class="manager-input"/>
 					</li>
 					<li>
 						<button class="add">
@@ -108,30 +162,8 @@ export default class TodoList extends Component {
 					</li>
 				</ul>
 			</div>
+			`
 
-				
-		<!-- <button class="delete">
-						<span class="material-symbols-outlined">remove</span>
-					</button>
-				</div> -->
-        `
-
-		window.addEventListener('load', () => this.readTodo())
-
-		const taskInput = this.el.querySelector('.task-input')
-		const dateInput = this.el.querySelector('.date-input')
-
-		const addButton = this.el.querySelector('.add')
-		addButton.addEventListener('click', () =>
-			this.createTodo(taskInput, dateInput)
-		)
-
-		const inputEl = this.el.querySelector('input')
-		inputEl.addEventListener('input', () => {
-			store.state.todoText = inputEl.value
-		})
-
-		const deleteButton = this.el.querySelector('.delete')
-		deleteButton.addEventListener('click', () => this.deleteTodo())
+		this.readTodo()
 	}
 }
