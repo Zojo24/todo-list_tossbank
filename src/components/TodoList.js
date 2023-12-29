@@ -81,18 +81,18 @@ export default class TodoList extends Component {
 		console.log(data.length)
 		for (let i = 0; i < data.length; i++) {
 			this.el.innerHTML += /*html*/ `
-				<div>
-					<ul class="list-container">
-						<li class="list-input__item" style="display:none;">
+				<div class="wrapper__bottom">
+					<ul class="response">
+						<li class="response__item" style="display:none;">
 							<span>${data[i].id}</span>
 						</li>
-						<li class="list-input__item">
+						<li class="response__item">
 							<span>${data[i].title.split('##')[0]}</span>
 						</li>
-						<li class="list-input__item">
+						<li class="response__item">
 							<span>${data[i].title.split('##')[1]}</span>
 						</li>
-						<li class="list-input__item">
+						<li class="response__item">
 							<span>${data[i].title.split('##')[2]}</span>
 						</li>
 						<button class="delete">
@@ -131,7 +131,7 @@ export default class TodoList extends Component {
 		this.el.classList.add('todo-list')
 		this.el.innerHTML = /*html*/ `
 		  <h1>Todo List</h1>
-			<div class="list-container">
+			<div class="wrapper__top">
 				<ul class="list-header">
 					<li class="list-header__item">
 						<span>작업 내용</span>
