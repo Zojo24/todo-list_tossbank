@@ -75,7 +75,7 @@ export default class TodoList extends Component {
 	}
 	//todoItem//
 	async render() {
-		this.el.classList.add('todo-item')
+		this.el.classList.add('todo-list')
 		this.el.innerHTML = /*html*/ `
         <div class="items">
             <div class="task">
@@ -114,6 +114,11 @@ export default class TodoList extends Component {
 		addButton.addEventListener('click', () =>
 			this.createTodo(taskInput, dateInput)
 		)
+
+		const inputEl = this.el.querySelector('input')
+		inputEl.addEventListener('input', () => {
+			store.state.todoText = inputEl.value
+		})
 
 		const deleteButton = this.el.querySelector('.delete')
 		deleteButton.addEventListener('click', () => this.deleteTodo())

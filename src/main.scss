@@ -1,17 +1,39 @@
+/* components-TheHeader */
 .header {
 	position: sticky;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 70px;
+	height: 80px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: left;
 	align-items: center;
 	padding: 0 36px;
 	z-index: 6;
-	background-color: #fff;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-	border-bottom: 1px solid #eaeaea;
+	background-color: #202632;
+
+	.bank-logo {
+		width: 15em;
+	}
+	.menu a {
+		color: #eaeaea;
+		text-decoration: none;
+		padding: 0 30px;
+		font-size: 25px;
+		font-weight: 700;
+
+		&:first-child {
+			margin-left: 4em;
+		}
+	}
+}
+/* components-TodoList */
+.todo-list {
+	.items {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 40px 0;
+		border-top: 50px;
+		border: 2px solid rgba(112, 112, 112, 0.36);
+	}
 }
 
 .about {
@@ -42,15 +64,5 @@
 		&:hover {
 			text-decoration: underline;
 		}
-	}
-}
-
-.todo-item {
-	.items {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		padding: 40px 0;
-		border: 2px solid rgba(112, 112, 112, 0.36);
 	}
 }

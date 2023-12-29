@@ -19,25 +19,15 @@ export default class TheHeader extends Component {
 		})
 	}
 	render() {
+		this.el.classList.add('header')
 		this.el.innerHTML = /*html*/ `
-      <a href="#" class="logo"><span>toss bank</span>
-      <nav>
-        <ul>
-          ${this.state.menus
-						.map(menu => {
-							return /*html*/ `
-            <li>
-              <a href="${menu.href}">
-                ${menu.name}
-              </a>
-            </li>
-            `
-						})
-						.join('')}
-        </ul>
-      </nav>
-      <a href="#/about" class="user">
-        <!-- <img src= "/public/Toss_Symbol_Primary.png" alt="user"> -->
+		  <a href="#/">
+				<img class=bank-logo src="/public/TossBank_Logo_Primary_Reverse.png" alt="Toss Bank logo"/>
+			</a>
+			<div class="menu">			
+				<a href="#/">Todo List</a>
+      	<a href="#/about">About</a>
+			</div>
       </a>
     `
 	}
