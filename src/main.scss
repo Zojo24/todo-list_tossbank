@@ -1,16 +1,20 @@
+body {
+	background-color: black;
+}
 /* components-TheHeader */
 .header {
 	position: sticky;
-	height: 80px;
+	height: 100px;
 	display: flex;
 	justify-content: left;
 	align-items: center;
-	padding: 0 36px;
+	padding: 0 50px;
 	z-index: 6;
-	background-color: #202632;
-
+	background-image: url(../public/header.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
 	.bank-logo {
-		width: 15em;
+		width: 18em;
 	}
 	.menu a {
 		color: #eaeaea;
@@ -18,21 +22,56 @@
 		padding: 0 30px;
 		font-size: 25px;
 		font-weight: 700;
-
 		&:first-child {
 			margin-left: 4em;
 		}
 	}
 }
+// #0064ff; #202632;
 /* components-TodoList */
-.todo-list {
-	.items {
+h1 {
+	color: white;
+	font-size: 2em;
+	font-weight: 700;
+	margin: 80px;
+}
+/* Container */
+.list-container {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 30px 0;
+	background-color: skyblue;
+	.list-header {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 		align-items: center;
-		padding: 40px 0;
-		border-top: 50px;
-		border: 2px solid rgba(112, 112, 112, 0.36);
+		color: white;
+		font-size: 1.2em;
+		font-weight: 700;
+		margin: 80px;
+		gap: 5em;
+		flex-grow: 1;
+	}
+	.list-input {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		font-size: 1.2em;
+		font-weight: 700;
+		margin: 80px;
+		gap: 5em;
+	}
+}
+@media (max-width: 1200px) {
+	.container {
+		padding: 40px;
+	}
+}
+@media (max-width: 600px) {
+	.container {
+		padding: 40px 20px;
 	}
 }
 

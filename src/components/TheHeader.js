@@ -21,14 +21,15 @@ export default class TheHeader extends Component {
 	render() {
 		this.el.classList.add('header')
 		this.el.innerHTML = /*html*/ `
-		  <a href="#/">
+		<div class="header">
+			<a href="#/">
 				<img class=bank-logo src="/public/TossBank_Logo_Primary_Reverse.png" alt="Toss Bank logo"/>
 			</a>
 			<div class="menu">			
 				<a href="#/">Todo List</a>
-      	<a href="#/about">About</a>
+				<a href="#/about">About</a>
 			</div>
-      </a>
+		</div>
     `
 	}
 }
