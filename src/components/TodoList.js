@@ -95,9 +95,11 @@ export default class TodoList extends Component {
 						<li class="response__item">
 							<span>${data[i].title.split('##')[2]}</span>
 						</li>
-						<button class="delete">
-							<span class="material-symbols-outlined">remove</span>
-						</button>
+						<li class="response__item">
+							<button class="delete">
+								<span class="material-symbols-outlined">remove</span>
+							</button>
+						</li>
 					</ul>
 				</div>
 			`
@@ -147,15 +149,15 @@ export default class TodoList extends Component {
 
 				<ul class="list-input">
 					<li class="list-input__item">
-						<input class="task-input" placeholder="해야하는 작업을 작성해주세요."/>
+						<input class="task-input" placeholder="작업 내용을 작성해주세요."/>
 					</li>
 					<li class="list-input__item">
 						<input class="date-input" type="date">
 					</li>
 					<li class="list-input__item">
-						<input class="manager-input"/>
+						<input class="manager-input" placeholder="담당자를 작성해주세요."/>
 					</li>
-					<li>
+					<li class="list-input__item">
 						<button class="add">
 							<span class="material-symbols-outlined">add</span>
 						</button>
