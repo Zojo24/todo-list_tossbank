@@ -120,6 +120,19 @@ h1 {
 	font-size: 1.2em;
 	font-weight: 700;
 }
+button {
+	border-radius: 10px;
+	border-color: transparent;
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+.add {
+	background-color: #0064ff;
+}
+.delete {
+	background-color: #bf360c;
+}
 
 @media (max-width: 1200px) {
 	.container {
