@@ -34,6 +34,7 @@ export default class TodoList extends Component {
 
 	//API DELETE//
 	async deleteTodo(todoId) {
+		console.log(todoId)
 		const res = await fetch(
 			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/' +
 				todoId,
@@ -46,10 +47,16 @@ export default class TodoList extends Component {
 				}
 			}
 		)
-		const json = await res.json()
-		console.log(json)
-
-		return json
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(`HTTP error! Status: ${response.status}`)
+				}
+				return response.json()
+			})
+			.then(() => {
+				window.location.reload()
+			})
+			.catch(error => console.error('Fetch Error:', error))
 	}
 
 	//GET//
@@ -122,8 +129,8 @@ export default class TodoList extends Component {
 
 		const deleteButtons = this.el.querySelectorAll('.delete')
 		deleteButtons.forEach(deleteButton => {
-			const todoId = deleteButton.parentNode.children
-				.item(0)
+			const todoId = deleteButton.parentNode.parentNode.children
+				.item(1)
 				.children.item(0).innerHTML
 			deleteButton.addEventListener('click', () => this.deleteTodo(todoId))
 		})
