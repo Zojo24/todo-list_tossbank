@@ -83,6 +83,7 @@ export default class TodoList extends Component {
 			this.el.innerHTML += /*html*/ `
 				<div class="wrapper__bottom">
 					<ul class="response">
+						<li class="response__item"> <input type="checkbox" /></li>
 						<li class="response__item" style="display:none;">
 							<span>${data[i].id}</span>
 						</li>

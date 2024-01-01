@@ -90,7 +90,7 @@ h1 {
 		font-size: 1em;
 	}
 	background-color: white;
-	border-bottom: 5px solid black;
+	border-bottom: 5px solid #00094c;
 	border-radius: 10px;
 }
 
@@ -104,21 +104,22 @@ h1 {
 
 .response {
 	border-radius: 20px;
-	height: 4em;
+	height: 3.5em;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: 5% 47% 20% 22% 5%;
+	grid-gap: 0.2em;
 }
 
 .response__item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 20px 50px;
-	border-bottom: 5px solid #8c8c8c;
-	border-radius: 10px;
 	color: #1f2633;
 	font-size: 1.2em;
 	font-weight: 700;
+	input {
+		zoom: 1.8;
+	}
 }
 button {
 	border-radius: 10px;
