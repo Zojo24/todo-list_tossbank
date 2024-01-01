@@ -26,10 +26,16 @@ export default class TodoList extends Component {
 				})
 			}
 		)
-		const json = await res.json()
-		console.log(json)
-
-		return json
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(`HTTP error! Status: ${response.status}`)
+				}
+				return response.json()
+			})
+			.then(() => {
+				window.location.reload()
+			})
+			.catch(error => console.error('Fetch Error:', error))
 	}
 
 	//API DELETE//
@@ -61,7 +67,6 @@ export default class TodoList extends Component {
 
 	//GET//
 	readTodo() {
-		console.log('readTodo')
 		const res = fetch(
 			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
 			{
@@ -84,13 +89,11 @@ export default class TodoList extends Component {
 	}
 
 	getTodoList(data) {
-		console.log(data[3].title.split('##')[0])
-		console.log(data.length)
 		for (let i = 0; i < data.length; i++) {
 			this.el.innerHTML += /*html*/ `
 				<div class="wrapper__bottom">
 					<ul class="response">
-						<li class="response__item"> <input type="checkbox" /></li>
+						<li class="response__item"> <input type="checkbox"/></li>
 						<li class="response__item" style="display:none;">
 							<span>${data[i].id}</span>
 						</li>
