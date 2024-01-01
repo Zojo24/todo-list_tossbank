@@ -8,8 +8,7 @@ export default class TodoList extends Component {
 	}
 	//API POST//
 	async createTodo(taskInput, dateInput, managerInput) {
-		const parameter =
-			taskInput.value + '##' + dateInput.value + '##' + managerInput.value
+		const parameter = taskInput.value + '##' + dateInput.value
 
 		const res = await fetch(
 			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
@@ -89,6 +88,7 @@ export default class TodoList extends Component {
 	}
 
 	getTodoList(data) {
+		console.log(data)
 		for (let i = 0; i < data.length; i++) {
 			this.el.innerHTML += /*html*/ `
 				<div class="wrapper__bottom">
@@ -104,8 +104,12 @@ export default class TodoList extends Component {
 							<span>${data[i].title.split('##')[1]}</span>
 						</li>
 						<li class="response__item">
-							<span>${data[i].title.split('##')[2]}</span>
-						</li>
+						<select class="status-input">
+							<option class="pending" value="pending">대기중</option>
+							<option class="ongoing"value="ongoing">진행중</option>
+							<option class="completed"value="completed">완료</option>
+						</select>
+					</li>
 						<li class="response__item">
 							<button class="delete">
 								<span class="material-symbols-outlined">remove</span>
@@ -118,11 +122,10 @@ export default class TodoList extends Component {
 
 		const taskInput = this.el.querySelector('.task-input')
 		const dateInput = this.el.querySelector('.date-input')
-		const managerInput = this.el.querySelector('.manager-input')
 
 		const addButton = this.el.querySelector('.add')
 		addButton.addEventListener('click', () =>
-			this.createTodo(taskInput, dateInput, managerInput)
+			this.createTodo(taskInput, dateInput)
 		)
 
 		const inputEl = this.el.querySelector('input')
@@ -137,6 +140,7 @@ export default class TodoList extends Component {
 				.children.item(0).innerHTML
 			deleteButton.addEventListener('click', () => this.deleteTodo(todoId))
 		})
+		const statusSelect = document.getElementById('statusSelect')
 	}
 
 	//todoList//
@@ -152,9 +156,6 @@ export default class TodoList extends Component {
 					<li class="list-header__item">
 						<span>마감일</span>
 					</li>
-					<li class="list-header__item">
-						<span>결재자</span>
-					</li>
 					<li> </li>
 				</ul>	
 
@@ -164,9 +165,6 @@ export default class TodoList extends Component {
 					</li>
 					<li class="list-input__item">
 						<input class="date-input" type="date">
-					</li>
-					<li class="list-input__item">
-						<input class="manager-input" placeholder="담당자를 작성해주세요."/>
 					</li>
 					<li class="list-input__item">
 						<button class="add">
