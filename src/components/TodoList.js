@@ -38,13 +38,12 @@ export default class TodoList extends Component {
 	}
 
 	//API PUT//
-	readTodo(taskInput, dateInput, statusInput) {
-		const parameter =
-			taskInput.value + '##' + dateInput.value + '##' + statusInput.value
+	updateTodo(todoId, task, date, select) {
+		const parameter = task + '##' + date
 		console.log(parameter)
-
 		const res = fetch(
-			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/:todoId',
+			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/' +
+				todoId,
 			{
 				method: 'PUT',
 				headers: {
@@ -54,7 +53,7 @@ export default class TodoList extends Component {
 				},
 				body: JSON.stringify({
 					title: parameter,
-					done: ''
+					done: select
 				})
 			}
 		)
@@ -135,11 +134,10 @@ export default class TodoList extends Component {
 							<input type="date" value=${data[i].title.split('##')[1]} />
 						</li>
 						<li class="response__item">
-						<select class="status-input">
-							<option class="pending" value="pending">대기중</option>
-							<option class="ongoing"value="ongoing">진행중</option>
-							<option class="completed"value="completed">완료</option>
-						</select>
+							<select class="status-input">
+								<option class="ongoing" value="true" >진행중</option>
+								<option class="completed" value="false">완료</option>
+							</select>
 					</li>
 						<li class="response__item">
 							<button class="delete">
@@ -157,14 +155,31 @@ export default class TodoList extends Component {
 		addButton.addEventListener('click', () =>
 			this.createTodo(taskInput, dateInput)
 		)
-
-		const statusInput = this.el
-			.querySelector('.status-input')
-			.addEventListener('keypress', function (e) {
-				if (e.key === 'Enter') {
-				}
-				console.log(statusInput)
+		//진행 상황 수정하기//
+		const statusInput = this.el.querySelectorAll('.status-input')
+		statusInput.forEach(statusInput => {
+			statusInput.addEventListener('change', () => {
+				const todoId = statusInput.parentNode.parentNode.children
+					.item(1)
+					.children.item(0).innerHTML
+				const task = statusInput.parentNode.parentNode.children
+					.item(2)
+					.children.item(0).value
+				const date = statusInput.parentNode.parentNode.children
+					.item(3)
+					.children.item(0).value
+				const select = statusInput.value
+				this.updateTodo(todoId, task, date, select)
 			})
+		})
+
+		'click',
+			() => this.updateTodo(taskInput, dateInput, statusInput),
+			console.log('hi')
+
+		// function (e) {
+		// 	// if (e.key === 'Enter') {
+		// 	// }
 
 		const inputEl = this.el.querySelector('input')
 		inputEl.addEventListener('input', () => {
@@ -179,8 +194,9 @@ export default class TodoList extends Component {
 		// console.log(taskStatus)
 
 		//input 수정하기//
-		const doubleClick = (e, todoId) => {
-			const todoElem = e.target
+		const updateInput = (e, todoId) => {
+			console.log(hi)
+			const todolem = e.target
 			const inputText = e.target.innerText
 			const todoItemElem = todoElem.parentNode
 			const inputElem = document.createElement('input')
