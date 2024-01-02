@@ -3,10 +3,11 @@ import Store from '../store/about'
 
 export default class About extends Component {
 	render() {
-		const { photo, name, email, blog } = Store.state
+		const { intro, photo, name, email, blog } = Store.state
 
 		this.el.classList.add('container', 'about')
 		this.el.innerHTML = /*html*/ `
+			<p class="intro">${intro}</p>
 			<div style="background-image: url(${photo})" class="photo"></div>
 			<p class="name">${name}</p>
 			<p>

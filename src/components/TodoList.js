@@ -1,40 +1,9 @@
 import { Component } from '../core/zojo'
-import CRUD from '/api/todoAPI'
+import { readTodo } from '../store/todos'
 
 export default class TodoList extends Component {
 	constructor(props) {
 		super(props)
-		this.crud = new CRUD()
-	}
-	//API POST//
-	async createTodo(taskInput, dateInput) {
-		const parameter = taskInput.value + '##' + dateInput.value
-
-		const res = await fetch(
-			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
-			{
-				method: 'POST',
-				headers: {
-					'content-type': 'application/json',
-					apikey: 'KDT7_GrZ1eYBo',
-					username: 'KDT7_ChoiHongJoo'
-				},
-				body: JSON.stringify({
-					title: parameter,
-					order: ''
-				})
-			}
-		)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error(`HTTP error! Status: ${response.status}`)
-				}
-				return response.json()
-			})
-			.then(() => {
-				window.location.reload()
-			})
-			.catch(error => console.error('Fetch Error:', error))
 	}
 
 	//API PUT//
@@ -55,56 +24,6 @@ export default class TodoList extends Component {
 					title: parameter,
 					done: select
 				})
-			}
-		)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error(`HTTP error! Status: ${response.status}`)
-				}
-				return response.json()
-			})
-			.then(data => this.getTodoList(data))
-			.catch(error => console.error('Fetch Error:', error))
-	}
-
-	//API DELETE//
-	async deleteTodo(todoId) {
-		console.log(todoId)
-		const res = await fetch(
-			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/' +
-				todoId,
-			{
-				method: 'DELETE',
-				headers: {
-					'content-type': 'application/json',
-					apikey: 'KDT7_GrZ1eYBo',
-					username: 'KDT7_ChoiHongJoo'
-				}
-			}
-		)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error(`HTTP error! Status: ${response.status}`)
-				}
-				return response.json()
-			})
-			.then(() => {
-				window.location.reload()
-			})
-			.catch(error => console.error('Fetch Error:', error))
-	}
-
-	//API GET//
-	readTodo() {
-		const res = fetch(
-			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
-			{
-				method: 'GET',
-				headers: {
-					'content-type': 'application/json',
-					apikey: 'KDT7_GrZ1eYBo',
-					username: 'KDT7_ChoiHongJoo'
-				}
 			}
 		)
 			.then(response => {
@@ -155,6 +74,7 @@ export default class TodoList extends Component {
 		addButton.addEventListener('click', () =>
 			this.createTodo(taskInput, dateInput)
 		)
+
 		//진행 상황 수정하기//
 		const statusInput = this.el.querySelectorAll('.status-input')
 		statusInput.forEach(statusInput => {
@@ -176,10 +96,6 @@ export default class TodoList extends Component {
 		'click',
 			() => this.updateTodo(taskInput, dateInput, statusInput),
 			console.log('hi')
-
-		// function (e) {
-		// 	// if (e.key === 'Enter') {
-		// 	// }
 
 		const inputEl = this.el.querySelector('input')
 		inputEl.addEventListener('input', () => {
@@ -267,6 +183,14 @@ export default class TodoList extends Component {
 			</div>
 			`
 
-		this.readTodo()
+		readTodo()
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(`HTTP error! Status: ${response.status}`)
+				}
+				return response.json()
+			})
+			.then(data => this.getTodoList(data))
+			.catch(error => console.error('Fetch Error:', error))
 	}
 }
