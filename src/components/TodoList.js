@@ -66,7 +66,7 @@ export default class TodoList extends Component {
 						</li>
 						<li class="response__item">
 							<select class="status-input">
-								<option class="ongoing" value="true" >진행중</option>
+								<option class="active" value="true" >진행중</option>
 								<option class="completed" value="false">완료</option>
 							</select>
 						</li>
@@ -92,8 +92,6 @@ export default class TodoList extends Component {
 		addButton.addEventListener('click', () => createTodo(taskInput, dateInput))
 
 		//항목 수정하기//
-		const statusInput = this.el.querySelector('.status-input')
-
 		const editButtons = this.el.querySelectorAll('.edit')
 		editButtons.forEach(editButton => {
 			editButton.addEventListener('click', () => {
@@ -127,14 +125,14 @@ export default class TodoList extends Component {
 				.children.item(0).innerHTML
 			deleteButton.addEventListener('click', () => deleteTodo(todoId))
 		})
-		const statusSelect = document.getElementById('statusSelect')
+		// const statusSelect = document.getElementById('statusSelect')
+
+		//항목 완료/미완료 분류//
+		const statusInput = this.el.querySelector('.status-input')
+		statusInput.sort((a, b) => {
+			const arr = ['active', 'completed']
+			return arr.includes(a.status) || arr.includes(b.status) ? 1 : -1
+		})
+		console.log(statusInput)
 	}
 }
-
-//항복 완료/미완료 분류//
-// const taskStatus = this.el.querySelector('.status-input')
-// taskStatus.sort((a, b) => {
-// 	const arr = ['pending', 'completed']
-// 	return arr.includes(a.status) || arr.includes(b.status) ? 1 : -1
-// })
-// console.log(taskStatus)
