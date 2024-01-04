@@ -1,39 +1,9 @@
 import { Component } from '../core/zojo'
-import { readTodo } from '../store/todos'
+import { readTodo, createTodo, deleteTodo, updateTodo } from '../store/todos'
 
 export default class TodoList extends Component {
 	constructor(props) {
 		super(props)
-	}
-
-	//API PUT//
-	updateTodo(todoId, task, date, select) {
-		const parameter = task + '##' + date
-		console.log(parameter)
-		const res = fetch(
-			'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/' +
-				todoId,
-			{
-				method: 'PUT',
-				headers: {
-					'content-type': 'application/json',
-					apikey: 'KDT7_GrZ1eYBo',
-					username: 'KDT7_ChoiHongJoo'
-				},
-				body: JSON.stringify({
-					title: parameter,
-					done: select
-				})
-			}
-		)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error(`HTTP error! Status: ${response.status}`)
-				}
-				return response.json()
-			})
-			.then(data => this.getTodoList(data))
-			.catch(error => console.error('Fetch Error:', error))
 	}
 
 	getTodoList(data) {
@@ -71,9 +41,7 @@ export default class TodoList extends Component {
 		const dateInput = this.el.querySelector('.date-input')
 
 		const addButton = this.el.querySelector('.add')
-		addButton.addEventListener('click', () =>
-			this.createTodo(taskInput, dateInput)
-		)
+		addButton.addEventListener('click', () => createTodo(taskInput, dateInput))
 
 		//진행 상황 수정하기//
 		const statusInput = this.el.querySelectorAll('.status-input')
@@ -93,9 +61,7 @@ export default class TodoList extends Component {
 			})
 		})
 
-		'click',
-			() => this.updateTodo(taskInput, dateInput, statusInput),
-			console.log('hi')
+		'click', () => this.updateTodo(taskInput, dateInput, statusInput)
 
 		const inputEl = this.el.querySelector('input')
 		inputEl.addEventListener('input', () => {
@@ -146,7 +112,7 @@ export default class TodoList extends Component {
 			const todoId = deleteButton.parentNode.parentNode.children
 				.item(1)
 				.children.item(0).innerHTML
-			deleteButton.addEventListener('click', () => this.deleteTodo(todoId))
+			deleteButton.addEventListener('click', () => deleteTodo(todoId))
 		})
 		const statusSelect = document.getElementById('statusSelect')
 	}

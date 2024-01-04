@@ -72,3 +72,32 @@ export async function readTodo() {
 
 	return res
 }
+
+//API PUT//
+export async function updateTodo(todoId, task, date, select) {
+	const parameter = task + '##' + date
+	console.log(parameter)
+	const res = fetch(
+		'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/' + todoId,
+		{
+			method: 'PUT',
+			headers: {
+				'content-type': 'application/json',
+				apikey: 'KDT7_GrZ1eYBo',
+				username: 'KDT7_ChoiHongJoo'
+			},
+			body: JSON.stringify({
+				title: parameter,
+				done: select
+			})
+		}
+	)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`)
+			}
+			return response.json()
+		})
+		.then(data => this.getTodoList(data))
+		.catch(error => console.error('Fetch Error:', error))
+}
