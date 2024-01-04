@@ -92,12 +92,5 @@ export async function updateTodo(todoId, task, date, select) {
 			})
 		}
 	)
-		.then(response => {
-			if (!response.ok) {
-				throw new Error(`HTTP error! Status: ${response.status}`)
-			}
-			return response.json()
-		})
-		.then(data => this.getTodoList(data))
-		.catch(error => console.error('Fetch Error:', error))
+	return res
 }

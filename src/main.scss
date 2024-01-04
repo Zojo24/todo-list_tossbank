@@ -106,7 +106,7 @@ h1 {
 	border-radius: 20px;
 	height: 3.5em;
 	display: grid;
-	grid-template-columns: 5% 45% 23% 22% 5%;
+	grid-template-columns: 4% 45% 20% 19% 6% 6%;
 }
 
 .response__item {
@@ -142,9 +142,13 @@ button {
 	color: white;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 .add {
 	background-color: #0064ff;
+}
+.edit {
+	background-color: green;
 }
 .delete {
 	background-color: #bf360c;
