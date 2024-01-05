@@ -97,9 +97,32 @@ h1 {
 	border-radius: 10px;
 }
 
+// TodoList //
+.todo.list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.filter {
+	max-width: 1120px;
+	padding: 5px;
+	display: flex;
+	justify-content: flex-end;
+	button {
+		padding: 5px;
+		margin: 10px;
+		color: #202632;
+		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+		text-align: center;
+		font-weight: 700;
+	}
+}
+
+// TodoItem //
 .wrapper__bottom {
 	max-width: 1120px;
-	margin: 30px auto;
+	margin-top: 10px;
+	margin-bottom: 30px;
 	padding: 10px 30px;
 	background-color: white;
 	border-radius: 20px;
@@ -168,7 +191,6 @@ button {
 		padding: 40px 20px;
 	}
 }
-
 //About 페이지//
 .about {
 	color: white;

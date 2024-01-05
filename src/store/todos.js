@@ -50,7 +50,6 @@ export const readTodo = async () => {
 
 export const deleteTodo = async id => {
 	try {
-		console.log(id)
 		const res = await fetch(
 			`https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${id}`,
 			{
@@ -68,25 +67,27 @@ export const deleteTodo = async id => {
 	}
 }
 
-//API PUT//
-export async function updateTodo(id, task, date, select) {
-	const parameter = task + '##' + date
-	const res = fetch(
-		'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${id}',
-		{
-			method: 'PUT',
-			headers: {
-				'content-type': 'application/json',
-				apikey: 'KDT7_GrZ1eYBo',
-				username: 'KDT7_ChoiHongJoo'
-			},
-			body: JSON.stringify({
-				title: parameter,
-				done: select
-			})
-		}
-	)
-	console.log('end')
-
-	return res
+export const updateTodo = async update => {
+	try {
+		console.log(update)
+		const res = await fetch(
+			`https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${id}`,
+			{
+				method: 'PUT',
+				headers: {
+					'content-type': 'application/json',
+					apikey: 'KDT7_GrZ1eYBo',
+					username: 'KDT7_ChoiHongJoo'
+				},
+				body: JSON.stringify({
+					title,
+					done
+				})
+			}
+		)
+		readTodo()
+		window.location.reload()
+	} catch (error) {
+		console.log('upadteTodo error:', error)
+	}
 }

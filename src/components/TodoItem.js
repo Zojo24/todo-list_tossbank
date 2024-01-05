@@ -18,10 +18,12 @@ export default class TodoItem extends Component {
           <input class="todo-id" value = ${todoItem.id} />
         </li>
         <li class="response__item">
-          <input value= ${todoItem.title.split('##')[0]} />
+          <input class="task-input" value= ${todoItem.title.split('##')[0]} />
         </li>
         <li class="response__item">
-          <input type="date" value=${todoItem.title.split('##')[1]} />
+          <input class="date-input" type="date" value=${
+						todoItem.title.split('##')[1]
+					} />
         </li>
         <li class="response__item">
           <select class="status-input">
@@ -47,7 +49,12 @@ export default class TodoItem extends Component {
 		deleteButton.addEventListener('click', () => deleteTodo(id))
 
 		const editButton = this.el.querySelector('.edit')
-		const id = this.el.querySelector('.todo-id').value
-		deleteButton.addEventListener('click', () => deleteTodo(id))
+		editButton.addEventListener('click', () => {
+			const statusInput = this.el.querySelector('.status-input').value
+			const taskInput = this.el.querySelector('.task-input').value
+			const dateInput = this.el.querySelector('.date-input').value
+			const update = statusInput + taskInput + dateInput
+			updateTodo(update)
+		})
 	}
 }
