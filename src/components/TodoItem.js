@@ -26,8 +26,8 @@ export default class TodoItem extends Component {
         </li>
         <li class="edit-task__item">
           <select class="status-input">
-            <option class="active" value="true">진행중</option>
-            <option class="completed" value="false">완료</option>
+            <option value="true">진행중</option>
+            <option value="false">완료</option>
           </select>
         </li>
         <li class="edit-task__item">
@@ -48,11 +48,19 @@ export default class TodoItem extends Component {
 
 		const editButton = this.el.querySelector('.edit')
 		editButton.addEventListener('click', () => {
-			const statusInput = this.el.querySelector('.status-input').value
+			const id = this.el.querySelector('.todo-id').value
 			const taskInput = this.el.querySelector('.task-input').value
 			const dateInput = this.el.querySelector('.date-input').value
-			const update = statusInput + taskInput + dateInput
-			updateTodo(update)
+			const done = this.el.querySelector('.status-input').value
+			const title = taskInput + '##' + dateInput
+			updateTodo(id, title, done)
 		})
+
+		const statusInput = this.el.querySelector('.status-input')
+		if (statusInput.item(0).value == todoItem.done) {
+			statusInput.item(0).selected = 'selected'
+		} else {
+			statusInput.item(1).selected = 'selected'
+		}
 	}
 }

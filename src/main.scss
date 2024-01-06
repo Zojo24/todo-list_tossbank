@@ -1,6 +1,6 @@
 body {
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-	background-color: black;
+	background-color: #000000;
 }
 input:focus {
 	outline: none;
@@ -113,7 +113,7 @@ input:focus {
 .task {
 	margin-top: 10px;
 	margin-bottom: 30px;
-	padding: 10px 30px;
+	padding: 10px 0px;
 	background-color: white;
 	border-radius: 20px;
 }
