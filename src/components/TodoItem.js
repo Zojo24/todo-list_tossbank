@@ -9,40 +9,38 @@ export default class TodoItem extends Component {
 	render() {
 		const { todoItem } = this.props
 
-		this.el.classList.add('todo-item')
+		this.el.classList.add('task')
 		this.el.innerHTML = /*html*/ `
-    <div class="wrapper__bottom">
-      <ul class="response">
-        <li class="response__item"> <input class="checkbox" type="checkbox"/></li>
-        <li class="response__item" style="display:none;">
+      <ul class="edit-task">
+        <li class="edit-task__item"> <input class="checkbox" type="checkbox"/></li>
+        <li class="edit-task__item" style="display:none;">
           <input class="todo-id" value = ${todoItem.id} />
         </li>
-        <li class="response__item">
+        <li class="edit-task__item">
           <input class="task-input" value= ${todoItem.title.split('##')[0]} />
         </li>
-        <li class="response__item">
+        <li class="edit-task__item">
           <input class="date-input" type="date" value=${
 						todoItem.title.split('##')[1]
 					} />
         </li>
-        <li class="response__item">
+        <li class="edit-task__item">
           <select class="status-input">
             <option class="active" value="true">진행중</option>
             <option class="completed" value="false">완료</option>
           </select>
         </li>
-        <li class="response__item">
+        <li class="edit-task__item">
           <button type= "submit" class="edit">
           <span class="material-symbols-outlined">edit_note</span>
           </button>
         </li>
-        <li class="response__item">
+        <li class="edit-task__item">
           <button class="delete">
             <span class="material-symbols-outlined">remove</span>
           </button>
         </li>
       </ul>
-    </div>
   `
 		const deleteButton = this.el.querySelector('.delete')
 		const id = this.el.querySelector('.todo-id').value

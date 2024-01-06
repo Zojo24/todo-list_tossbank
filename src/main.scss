@@ -35,21 +35,18 @@ input:focus {
 		}
 	}
 }
-
-/* components-TodoList */
-h1 {
+/* AddTodo Component*/
+.title {
 	max-width: 1120px;
 	margin: 80px auto;
 	color: white;
 	font-size: 2em;
 	font-weight: 700;
 }
-
-/* Container */
-.wrapper__top {
+.new-task {
 	max-width: 1120px;
 	margin: 10px auto;
-	padding: 30px 2.7em;
+	padding: 30px 2em;
 	background-color: #163ceb;
 	border-radius: 20px;
 	color: white;
@@ -58,8 +55,7 @@ h1 {
 	grid-template-rows: repeat(2, 1fr);
 	grid-template-columns: 55% 23% 10%;
 }
-
-.list-header {
+.description {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
@@ -67,23 +63,20 @@ h1 {
 	font-size: 1.2em;
 	font-weight: 700;
 }
-
-.list-header__item {
+.description__item {
 	padding: 10px;
 	text-align: center;
 	margin-bottom: 20px;
 }
-
-.list-input {
+.new-input {
 	list-style-type: none;
 	display: contents;
 }
-.list-input__item {
+.new-input__item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-grow: 1;
-
 	.task-input,
 	.date-input,
 	.status-input {
@@ -97,14 +90,12 @@ h1 {
 	border-radius: 10px;
 }
 
-// TodoList //
-.todo.list {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+// TodoList Component//
+.todo-list {
+	max-width: 1200px;
+	margin: 10px auto;
 }
 .filter {
-	max-width: 1120px;
 	padding: 5px;
 	display: flex;
 	justify-content: flex-end;
@@ -118,9 +109,8 @@ h1 {
 	}
 }
 
-// TodoItem //
-.wrapper__bottom {
-	max-width: 1120px;
+// TodoItem Component//
+.task {
 	margin-top: 10px;
 	margin-bottom: 30px;
 	padding: 10px 30px;
@@ -128,14 +118,14 @@ h1 {
 	border-radius: 20px;
 }
 
-.response {
+.edit-task {
 	border-radius: 20px;
 	height: 3.5em;
 	display: grid;
 	grid-template-columns: 4% 45% 20% 19% 6% 6%;
 }
 
-.response__item {
+.edit-task__item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -188,7 +178,7 @@ button {
 
 @media (max-width: 600px) {
 	.container {
-		padding: 40px 20px;
+		padding: 20px 20px;
 	}
 }
 //About 페이지//
@@ -207,7 +197,7 @@ button {
 		border-radius: 20px;
 	}
 	.developer {
-		margin: 10em;
+		margin: 5em;
 		display: flex;
 		flex-direction: column;
 		.developer_intro {
@@ -215,8 +205,6 @@ button {
 			text-align: center;
 			margin: 1em;
 		}
-	}
-	.intro {
 	}
 	.profile {
 		width: 230px;

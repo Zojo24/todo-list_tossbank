@@ -17,11 +17,11 @@ export default class TodoList extends Component {
 				<button class="completed">완료 목록</button>
 				<button class="delete-all">전체삭제</button>
 			</div>
-			<div class="todo-list"></div>
+			<div class="todo-item"></div>
     `
 		await readTodo()
 		// console.log(todoStore.state.todoItems)
-		const todoListEl = this.el.querySelector('.todo-list')
+		const todoListEl = this.el.querySelector('.todo-item')
 		todoListEl.append(
 			...todoStore.state.todoItems.map(
 				todoItem => new TodoItem({ todoItem }).el
