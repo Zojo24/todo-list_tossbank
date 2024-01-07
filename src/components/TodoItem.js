@@ -26,8 +26,8 @@ export default class TodoItem extends Component {
         </li>
         <li class="edit-task__item">
           <select class="status-input">
-            <option value="true">진행중</option>
-            <option value="false">완료</option>
+            <option class="task-active" value="true">진행중</option>
+            <option class="task-completed" value="false">완료</option>
           </select>
         </li>
         <li class="edit-task__item">
