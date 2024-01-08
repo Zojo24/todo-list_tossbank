@@ -58,10 +58,16 @@ export default class TodoItem extends Component {
 		})
 
 		const statusInput = this.el.querySelector('.status-input')
-		if (statusInput.item(0).value == todoItem.done) {
-			statusInput.item(0).selected = 'selected'
-		} else {
+		if (todoItem.done) {
 			statusInput.item(1).selected = 'selected'
+		} else {
+			statusInput.item(0).selected = 'selected'
 		}
+		// const statusInput = this.el.querySelector('.status-input')
+		// if (statusInput.item(1).value === todoItem.done) {
+		// 	statusInput.item(0).selected = 'selected'
+		// } else {
+		// 	statusInput.item(1).selected = 'selected'
+		// }
 	}
 }

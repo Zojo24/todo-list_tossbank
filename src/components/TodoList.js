@@ -27,7 +27,7 @@ export default class TodoList extends Component {
 			)
 		)
 
-		// 항목 완료 & 미완료 분류 //
+		// 진행중&완료 항목 분류 //
 		const activeButton = this.el.querySelector('.active')
 		activeButton.addEventListener('click', () => {
 			const taskActive = this.el.querySelectorAll('.task-active')
