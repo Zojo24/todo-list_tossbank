@@ -46,6 +46,7 @@ export const readTodo = async () => {
 		)
 		const result = await res.json()
 		store.state.todoItems = result
+		console.log(result)
 		store.state.loading = false
 	} catch (error) {
 		console.log('readTodo error:', error)
@@ -71,7 +72,7 @@ export const updateTodo = async (id, title, done) => {
 			}
 		)
 
-		window.location.reload()
+		// window.location.reload()
 	} catch (error) {
 		console.log('upadteTodo error:', error)
 	}
