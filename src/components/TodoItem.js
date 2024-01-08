@@ -8,16 +8,15 @@ export default class TodoItem extends Component {
 
 	render() {
 		const { todoItem } = this.props
-		const taskTitle = todoItem.title.split('##')[0]
+		console.log(typeof todoItem.title.split('##')[0])
 		this.el.classList.add('task')
 		this.el.innerHTML = /*html*/ `
       <ul class="edit-task">
-        <li class="edit-task__item"> <input class="checkbox" type="checkbox"/></li>
         <li class="edit-task__item" style="display:none;">
           <input class="todo-id" value =${todoItem.id} />
         </li>
         <li class="edit-task__item">
-          <input class="task-input" value=${todoItem.title.split('##')[0]} />
+          <input class="task-input" value="${todoItem.title.split('##')[0]}" />
         </li>
         <li class="edit-task__item">
           <input class="date-input" type="date" value=${
@@ -26,8 +25,8 @@ export default class TodoItem extends Component {
         </li>
         <li class="edit-task__item">
           <select class="status-input">
-            <option class="task-active" value="true">진행중</option>
-            <option class="task-completed" value="false">완료</option>
+            <option class="task-active" value="true" selected>진행중</option>
+            <option class="task-completed" value="false" >완료</option>
           </select>
         </li>
         <li class="edit-task__item">
@@ -42,10 +41,12 @@ export default class TodoItem extends Component {
         </li>
       </ul>
   `
+		//삭제하기//
 		const deleteButton = this.el.querySelector('.delete')
 		const id = this.el.querySelector('.todo-id').value
 		deleteButton.addEventListener('click', () => deleteTodo(id))
 
+		//항목 수정하기//
 		const editButton = this.el.querySelector('.edit')
 		editButton.addEventListener('click', () => {
 			const id = this.el.querySelector('.todo-id').value

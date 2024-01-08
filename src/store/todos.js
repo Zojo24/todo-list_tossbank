@@ -2,7 +2,8 @@ import { Store } from '../core/zojo'
 
 const store = new Store({
 	todoItems: [],
-	todoItem: {}
+	todoItem: {},
+	loading: false
 })
 
 //항목 생성하기//
@@ -30,6 +31,7 @@ export const createTodo = async title => {
 }
 //항목 조회하기//
 export const readTodo = async () => {
+	store.state.loading = true
 	try {
 		const res = await fetch(
 			`https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos`,
@@ -44,7 +46,7 @@ export const readTodo = async () => {
 		)
 		const result = await res.json()
 		store.state.todoItems = result
-		console.log(result)
+		store.state.loading = false
 	} catch (error) {
 		console.log('readTodo error:', error)
 	}

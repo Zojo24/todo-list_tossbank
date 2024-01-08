@@ -17,7 +17,7 @@ export default class TodoList extends Component {
 				<button class="completed">완료 목록</button>
 				<button class="delete-all">완료 삭제</button>
 			</div>
-			<div class="todo-item" id="sortable"></div>
+			<div class="todo-item sortable"></div>
     `
 		await readTodo()
 		const todoListEl = this.el.querySelector('.todo-item')
@@ -26,6 +26,7 @@ export default class TodoList extends Component {
 				todoItem => new TodoItem({ todoItem }).el
 			)
 		)
+
 		// 항목 완료 & 미완료 분류 //
 		const activeButton = this.el.querySelector('.active')
 		activeButton.addEventListener('click', () => {
@@ -68,14 +69,17 @@ export default class TodoList extends Component {
 		})
 
 		// 항목 순서 바꾸기//
-
 		$(function () {
-			$('#sortable').sortable()
-			$('#sortable').disableSelection()
+			$('.sortable').sortable()
+			$('.sortable').disableSelection()
+		})
+		todoListEl.addEventListener('mouseup', () => {
+			const reorderTask = this.el.querySelector('.todo-item')
+			console.log(reorderTask)
 			let arr = []
-			const todoId = todoStore.state.todoItems.map(todoId =>
-				arr.push(todoId.id)
-			)
+			// if (todoListEl. )
+			const reorderId = reorderTask.map(reorderId => arr.push(reorderId.id))
+			console.log(reorderId.id)
 			reorderTodo(arr)
 		})
 	}
