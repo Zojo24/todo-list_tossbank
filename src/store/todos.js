@@ -110,7 +110,7 @@ export const deleteAllTodo = async todoIds => {
 				})
 			}
 		)
-		// window.location.reload()
+		window.location.reload()
 	} catch (error) {
 		console.log('deleteAllTodo error:', error)
 	}

@@ -59,9 +59,9 @@ export default class TodoList extends Component {
 		const deleteAllButton = this.el.querySelector('.delete-all')
 		deleteAllButton.addEventListener('click', () => {
 			let arr = []
-			const todoIds = todoStore.state.todoItems
+			const todoId = todoStore.state.todoItems
 				.filter(status => status.done === 'false')
-				.map(todoId => arr.push.apply(todoId.id))
+				.map(todoId => arr.push(todoId.id))
 
 			deleteAllTodo(arr)
 		})
