@@ -36,7 +36,7 @@ input:focus {
 	background-repeat: no-repeat;
 
 	.bank-logo {
-		width: 18em;
+		width: 18rem;
 	}
 
 	.menu a {
@@ -47,7 +47,7 @@ input:focus {
 		font-weight: 700;
 
 		&:first-child {
-			margin-left: 4em;
+			margin-left: 4rem;
 		}
 	}
 }
@@ -56,13 +56,13 @@ input:focus {
 	max-width: 1120px;
 	margin: 80px auto;
 	color: white;
-	font-size: 2em;
+	font-size: 2rem;
 	font-weight: 700;
 }
 .new-task {
 	max-width: 1120px;
 	margin: 10px auto;
-	padding: 30px 2em;
+	padding: 30px 2rem;
 	background-color: #163ceb;
 	border-radius: 20px;
 	color: white;
@@ -76,7 +76,7 @@ input:focus {
 	padding: 0;
 	margin: 0;
 	display: contents;
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	font-weight: 700;
 }
 .description__item {
@@ -100,7 +100,7 @@ input:focus {
 		line-height: 200%;
 		background-color: transparent;
 		border: none;
-		font-size: 1em;
+		font-size: 1rem;
 	}
 	background-color: white;
 	border-radius: 10px;
@@ -136,7 +136,7 @@ input:focus {
 
 .edit-task {
 	border-radius: 20px;
-	height: 3.5em;
+	height: 3.5rem;
 	display: grid;
 	grid-template-columns: 45% 20% 19% 6% 6%;
 }
@@ -151,7 +151,7 @@ input:focus {
 		flex-grow: 1;
 		border: transparent;
 		color: #1f2633;
-		font-size: 1.1em;
+		font-size: 1.1rem;
 		font-weight: 700;
 	}
 	select {
@@ -202,21 +202,21 @@ button {
 	align-items: center;
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 	.container {
-		width: 50em;
+		width: 50rem;
 	}
 	img {
-		width: 40em;
-		margin: 5em;
+		width: 40rem;
+		margin: 5rem;
 		border-radius: 20px;
 	}
 	.developer {
-		margin: 5em;
+		margin: 5rem;
 		display: flex;
 		flex-direction: column;
 		.developer_intro {
-			font-size: 2em;
+			font-size: 2rem;
 			text-align: center;
-			margin: 1em;
+			margin: 1rem;
 		}
 	}
 	.profile {
