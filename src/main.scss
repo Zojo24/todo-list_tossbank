@@ -5,6 +5,8 @@ body {
 input:focus {
 	outline: none;
 }
+
+/*loading animation*/
 .loader {
 	width: 30px;
 	height: 30px;
@@ -23,6 +25,37 @@ input:focus {
 	}
 	100% {
 		transform: rotate(360deg);
+	}
+}
+/*skeleton loading animation*/
+.skeleton {
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	background-color: black;
+}
+.skeleton::after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: linear-gradient(
+		270deg,
+		rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 0.1),
+		rgba(255, 255, 255, 0)
+	);
+	transform: translateX(-100%);
+	animation: skeleton-loader 2s infinite;
+}
+@keyframes skeleton-loader {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
 	}
 }
 
@@ -63,6 +96,7 @@ input:focus {
 	font-size: 2rem;
 	font-weight: 700;
 }
+
 .new-task {
 	max-width: 1120px;
 	margin: 10px auto;
@@ -213,6 +247,13 @@ button {
 		margin: 5rem;
 		border-radius: 20px;
 	}
+	img.skeleton {
+		width: 40rem;
+	}
+	.intro.skeleton {
+		height: 230px;
+	}
+
 	.developer {
 		margin: 5rem;
 		display: flex;

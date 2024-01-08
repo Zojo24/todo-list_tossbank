@@ -8,7 +8,6 @@ export default class TodoItem extends Component {
 
 	render() {
 		const { todoItem } = this.props
-		console.log(typeof todoItem.title.split('##')[0])
 		this.el.classList.add('task')
 		this.el.innerHTML = /*html*/ `
       <ul class="edit-task">
@@ -63,11 +62,5 @@ export default class TodoItem extends Component {
 		} else {
 			statusInput.item(0).selected = 'selected'
 		}
-		// const statusInput = this.el.querySelector('.status-input')
-		// if (statusInput.item(1).value === todoItem.done) {
-		// 	statusInput.item(0).selected = 'selected'
-		// } else {
-		// 	statusInput.item(1).selected = 'selected'
-		// }
 	}
 }

@@ -1,6 +1,7 @@
 import { Component } from '../core/zojo'
 import todoStore, { readTodo, deleteAllTodo, reorderTodo } from '../store/todos'
 import TodoItem from './TodoItem'
+const SECOND_TO_MS = 100
 
 export default class TodoList extends Component {
 	constructor() {
@@ -74,13 +75,12 @@ export default class TodoList extends Component {
 			$('.sortable').disableSelection()
 		})
 		todoListEl.addEventListener('mouseup', () => {
-			const reorderTask = this.el.querySelector('.todo-item')
-			console.log(reorderTask)
-			let arr = []
-			// if (todoListEl. )
-			const reorderId = reorderTask.map(reorderId => arr.push(reorderId.id))
-			console.log(reorderId.id)
-			reorderTodo(arr)
+			setTimeout(() => {
+				let arr = []
+				const todoIds = this.el.querySelectorAll('.todo-id')
+				todoIds.forEach(todoId => arr.push(todoId.value))
+				reorderTodo(arr)
+			}, SECOND_TO_MS)
 		})
 	}
 }

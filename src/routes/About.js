@@ -2,8 +2,15 @@ import { Component } from '../core/zojo'
 import Store from '../store/about'
 
 export default class About extends Component {
-	render() {
-		const { intro, photo, name, email, blog } = Store.state
+	async render() {
+		this.el.classList.add('container', 'about')
+		this.el.innerHTML = /*html*/ `
+		<div class="container">
+			<img class="skeleton" src="/public/about.png" alt="toss bank" />
+			<p class="intro skeleton"></p>
+			<div class="developer skeleton"></div>
+		`
+		const { intro, name, email, blog } = Store.state
 
 		this.el.classList.add('container', 'about')
 		this.el.innerHTML = /*html*/ `
