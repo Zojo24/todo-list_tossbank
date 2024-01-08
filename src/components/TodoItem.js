@@ -8,16 +8,16 @@ export default class TodoItem extends Component {
 
 	render() {
 		const { todoItem } = this.props
-
+		const taskTitle = todoItem.title.split('##')[0]
 		this.el.classList.add('task')
 		this.el.innerHTML = /*html*/ `
       <ul class="edit-task">
         <li class="edit-task__item"> <input class="checkbox" type="checkbox"/></li>
         <li class="edit-task__item" style="display:none;">
-          <input class="todo-id" value = ${todoItem.id} />
+          <input class="todo-id" value =${todoItem.id} />
         </li>
         <li class="edit-task__item">
-          <input class="task-input" value= ${todoItem.title.split('##')[0]} />
+          <input class="task-input" value=${todoItem.title.split('##')[0]} />
         </li>
         <li class="edit-task__item">
           <input class="date-input" type="date" value=${

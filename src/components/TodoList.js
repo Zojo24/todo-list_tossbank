@@ -1,5 +1,5 @@
 import { Component } from '../core/zojo'
-import todoStore, { readTodo, deleteAllTodo } from '../store/todos'
+import todoStore, { readTodo, deleteAllTodo, reorderTodo } from '../store/todos'
 import TodoItem from './TodoItem'
 
 export default class TodoList extends Component {
@@ -17,7 +17,7 @@ export default class TodoList extends Component {
 				<button class="completed">완료 목록</button>
 				<button class="delete-all">완료 삭제</button>
 			</div>
-			<div class="todo-item"></div>
+			<div class="todo-item" id="sortable"></div>
     `
 		await readTodo()
 		const todoListEl = this.el.querySelector('.todo-item')
@@ -56,6 +56,7 @@ export default class TodoList extends Component {
 			})
 		})
 
+		// 완료항목 일괄 삭제하기//
 		const deleteAllButton = this.el.querySelector('.delete-all')
 		deleteAllButton.addEventListener('click', () => {
 			let arr = []
@@ -64,6 +65,18 @@ export default class TodoList extends Component {
 				.map(todoId => arr.push(todoId.id))
 
 			deleteAllTodo(arr)
+		})
+
+		// 항목 순서 바꾸기//
+
+		$(function () {
+			$('#sortable').sortable()
+			$('#sortable').disableSelection()
+			let arr = []
+			const todoId = todoStore.state.todoItems.map(todoId =>
+				arr.push(todoId.id)
+			)
+			reorderTodo(arr)
 		})
 	}
 }

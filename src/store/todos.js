@@ -93,7 +93,7 @@ export const deleteTodo = async id => {
 		console.log('deleteTodo error:', error)
 	}
 }
-//전체 삭제하기//
+//완료항목 일괄 삭제하기//
 export const deleteAllTodo = async todoIds => {
 	try {
 		const res = await fetch(
@@ -113,5 +113,26 @@ export const deleteAllTodo = async todoIds => {
 		window.location.reload()
 	} catch (error) {
 		console.log('deleteAllTodo error:', error)
+	}
+}
+//항목 순서바꾸기//
+export const reorderTodo = async todoIds => {
+	try {
+		const res = await fetch(
+			`https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/reorder`,
+			{
+				method: 'PUT',
+				headers: {
+					'content-type': 'application/json',
+					apikey: 'KDT7_GrZ1eYBo',
+					username: 'KDT7_ChoiHongJoo'
+				},
+				body: JSON.stringify({
+					todoIds
+				})
+			}
+		)
+	} catch (error) {
+		console.log('reorderTodo error:', error)
 	}
 }
