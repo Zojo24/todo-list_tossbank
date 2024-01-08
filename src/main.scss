@@ -9,9 +9,13 @@ input:focus {
 	width: 30px;
 	height: 30px;
 	margin: 30px auto;
-	border: 5px solid #163ceb;
+	border: 7px solid #163ceb;
 	border-top-color: transparent;
 	border-radius: 50%;
+	animation: loader 1s infinite linear;
+}
+.loader.hide {
+	display: none;
 }
 @keyframes loader {
 	0% {
