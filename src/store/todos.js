@@ -24,7 +24,7 @@ export const createTodo = async title => {
 				})
 			}
 		)
-		window.location.reload()
+		readTodo()
 	} catch (error) {
 		console.log('createTodo error:', error)
 	}
@@ -46,7 +46,7 @@ export const readTodo = async () => {
 		)
 		const result = await res.json()
 		store.state.todoItems = result
-		console.log(result)
+		console.log(store.state.todoItems)
 		store.state.loading = false
 	} catch (error) {
 		console.log('readTodo error:', error)
@@ -71,8 +71,7 @@ export const updateTodo = async (id, title, done) => {
 				})
 			}
 		)
-
-		// window.location.reload()
+		readTodo()
 	} catch (error) {
 		console.log('upadteTodo error:', error)
 	}
@@ -91,7 +90,7 @@ export const deleteTodo = async id => {
 				}
 			}
 		)
-		window.location.reload()
+		readTodo()
 	} catch (error) {
 		console.log('deleteTodo error:', error)
 	}
@@ -113,7 +112,8 @@ export const deleteAllTodo = async todoIds => {
 				})
 			}
 		)
-		window.location.reload()
+		readTodo()
+		// window.location.reload()
 	} catch (error) {
 		console.log('deleteAllTodo error:', error)
 	}
@@ -135,6 +135,7 @@ export const reorderTodo = async todoIds => {
 				})
 			}
 		)
+		readTodo()
 	} catch (error) {
 		console.log('reorderTodo error:', error)
 	}

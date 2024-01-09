@@ -2,6 +2,7 @@
 $blue: #3498db;
 $toss-gray: #202632;
 $toss-blue: #0064ff;
+$light-gray: rgb(236, 236, 236);
 
 body {
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
@@ -173,7 +174,7 @@ input:focus {
 	padding: 5px;
 	display: flex;
 	justify-content: flex-end;
-	gap: 40px;
+	gap: 30px;
 	button {
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		color: $toss-gray;
@@ -185,6 +186,7 @@ input:focus {
 		&:hover {
 			box-shadow: 0 0 40px 50px $toss-gray inset;
 			color: #fff;
+			border-color: none;
 		}
 	}
 }
@@ -193,24 +195,47 @@ input:focus {
 .task {
 	margin-top: 10px;
 	margin-bottom: 30px;
-	padding: 10px 0px;
-	background-color: #dbeaff;
-	border-radius: 20px;
-	transition:
-		box-shadow 200ms ease-in-out,
-		color 200ms ease-in-out;
-	&:hover {
-		box-shadow: 0 0 40px 50px $toss-blue inset;
-		input {
-			color: #fff;
-		}
+	transition: width 200ms ease-in-out;
+}
+.task :hover {
+	background-color: $toss-blue;
+	border-radius: 15px;
+	border-color: none;
+	input {
+		color: #fff;
+		transition: color 200ms ease-in-out;
+	}
+	.status-input {
+		background-color: $toss-gray;
+		border-radius: 5px;
+	}
+	.edit span {
+		background-color: green;
+		border-radius: 5px;
+	}
+	.delete span {
+		background-color: #bf360c;
+		border-radius: 5px;
 	}
 }
-
+.task h4 {
+	width: 15rem;
+	text-align: center;
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	color: $toss-gray;
+	font-size: x-small;
+	padding: 5px;
+	background-color: $light-gray;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
 .edit-task {
-	border-radius: 20px;
 	height: 3.5rem;
 	display: grid;
+	background-color: #dbeaff;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 	grid-template-columns: 50% 15% 20% 6% 6%;
 }
 
@@ -232,7 +257,7 @@ input:focus {
 		zoom: 1.1;
 		border: transparent;
 		background-color: $toss-gray;
-		border-radius: 5px;
+		border-radius: 8px;
 		padding: 2px 1px 4px 4px;
 		color: white;
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';

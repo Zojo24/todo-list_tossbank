@@ -9,7 +9,9 @@ export default class TodoItem extends Component {
 	render() {
 		const { todoItem } = this.props
 		this.el.classList.add('task')
+		console.log(todoItem.updatedAt)
 		this.el.innerHTML = /*html*/ `
+		<h4 class="edit-date">최신 수정일: ${todoItem.updatedAt.substr(0, 10)}</h4>
       <ul class="edit-task">
         <li class="edit-task__item" style="display:none;">
           <input class="todo-id" value =${todoItem.id} />

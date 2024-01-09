@@ -1,16 +1,16 @@
 import { Component } from '../core/zojo'
 import todoStore, { readTodo, deleteAllTodo, reorderTodo } from '../store/todos'
 import TodoItem from './TodoItem'
+
 const SECOND_TO_MS = 100
 
 export default class TodoList extends Component {
 	constructor() {
 		super()
-		todoStore.subscribe('task', () => this.render())
-		todoStore.subscribe('date', () => this.render())
-		todoStore.subscribe('status', () => this.render())
+		readTodo()
+		todoStore.subscribe('todoItems', () => this.render())
 	}
-	async render() {
+	render() {
 		this.el.classList.add('todo-list')
 		this.el.innerHTML = /*html*/ `
 			<div class="filter">
@@ -20,7 +20,6 @@ export default class TodoList extends Component {
 			</div>
 			<div class="todo-item sortable"></div>
     `
-		await readTodo()
 		const todoListEl = this.el.querySelector('.todo-item')
 		todoListEl.append(
 			...todoStore.state.todoItems.map(
