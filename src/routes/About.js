@@ -3,18 +3,18 @@ import Store from '../store/about'
 
 export default class About extends Component {
 	async render() {
-		this.el.classList.add('container', 'about')
+		this.el.classList.add('about-container', 'about')
 		this.el.innerHTML = /*html*/ `
-		<div class="container">
+		<div class="about-wrapper">
 			<img class="skeleton" src="/public/about.png" alt="toss bank" />
 			<p class="intro skeleton"></p>
 			<div class="developer skeleton"></div>
 		`
 		const { intro, name, email, blog } = Store.state
 
-		this.el.classList.add('container', 'about')
+		this.el.classList.add('about-container', 'about')
 		this.el.innerHTML = /*html*/ `
-			<div class="container">
+			<div class="about-wrapper">
 				<img src="/public/about.png" alt="toss bank" />
 				<p class="intro">${intro}</p>
 				<div class="developer">

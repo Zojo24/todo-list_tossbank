@@ -1,3 +1,8 @@
+/*Colours*/
+$blue: #3498db;
+$toss-gray: #202632;
+$toss-blue: #0064ff;
+
 body {
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 	background-color: #000000;
@@ -11,7 +16,7 @@ input:focus {
 	width: 30px;
 	height: 30px;
 	margin: 30px auto;
-	border: 7px solid #163ceb;
+	border: 7px solid $toss-blue;
 	border-top-color: transparent;
 	border-radius: 50%;
 	animation: loader 1s infinite linear;
@@ -70,7 +75,6 @@ input:focus {
 	z-index: 6;
 	background-image: url(../public/header.jpg);
 	background-size: cover;
-	background-repeat: no-repeat;
 
 	.bank-logo {
 		width: 18rem;
@@ -89,19 +93,31 @@ input:focus {
 	}
 }
 /* AddTodo Component*/
+.container {
+	display: flex;
+	justify-content: center;
+	.home-wrapper {
+		margin: 5rem;
+		width: 50rem;
+		border-radius: 20px;
+		background-color: #fff;
+		padding: 1rem 0.5rem;
+	}
+}
 .title {
 	max-width: 1120px;
-	margin: 80px auto;
-	color: white;
+	padding: 1rem;
+	color: $toss-gray;
+	text-align: center;
 	font-size: 2rem;
 	font-weight: 700;
 }
 
 .new-task {
 	max-width: 1120px;
-	margin: 10px auto;
+	margin: 1rem;
 	padding: 30px 2rem;
-	background-color: #163ceb;
+	background-color: $toss-blue;
 	border-radius: 20px;
 	color: white;
 	display: grid;
@@ -134,11 +150,15 @@ input:focus {
 	.task-input,
 	.date-input,
 	.status-input {
+		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		text-align: center;
 		line-height: 200%;
+		cursor: pointer;
 		background-color: transparent;
 		border: none;
-		font-size: 1rem;
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: gray;
 	}
 	background-color: white;
 	border-radius: 10px;
@@ -147,19 +167,25 @@ input:focus {
 // TodoList Component//
 .todo-list {
 	max-width: 1200px;
-	margin: 10px auto;
+	margin: 1rem;
 }
 .filter {
 	padding: 5px;
 	display: flex;
 	justify-content: flex-end;
+	gap: 40px;
 	button {
-		padding: 5px;
-		margin: 10px;
-		color: #202632;
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-		text-align: center;
+		color: $toss-gray;
 		font-weight: 700;
+		padding: 5px;
+		transition:
+			box-shadow 300ms ease-in-out,
+			color 300ms ease-in-out;
+		&:hover {
+			box-shadow: 0 0 40px 50px $toss-gray inset;
+			color: #fff;
+		}
 	}
 }
 
@@ -168,15 +194,24 @@ input:focus {
 	margin-top: 10px;
 	margin-bottom: 30px;
 	padding: 10px 0px;
-	background-color: white;
+	background-color: #dbeaff;
 	border-radius: 20px;
+	transition:
+		box-shadow 200ms ease-in-out,
+		color 200ms ease-in-out;
+	&:hover {
+		box-shadow: 0 0 40px 50px $toss-blue inset;
+		input {
+			color: #fff;
+		}
+	}
 }
 
 .edit-task {
 	border-radius: 20px;
 	height: 3.5rem;
 	display: grid;
-	grid-template-columns: 45% 20% 19% 6% 6%;
+	grid-template-columns: 50% 15% 20% 6% 6%;
 }
 
 .edit-task__item {
@@ -187,20 +222,25 @@ input:focus {
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		text-align: center;
 		flex-grow: 1;
+		background-color: transparent;
 		border: transparent;
-		color: #1f2633;
-		font-size: 1.1rem;
+		color: $toss-gray;
+		font-size: 1rem;
 		font-weight: 700;
 	}
 	select {
 		zoom: 1.1;
 		border: transparent;
-		background-color: #202632;
+		background-color: $toss-gray;
 		border-radius: 5px;
 		padding: 2px 1px 4px 4px;
 		color: white;
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		text-align: center;
+		cursor: pointer;
+	}
+	.date-input {
+		cursor: pointer;
 	}
 }
 button {
@@ -210,9 +250,10 @@ button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 .add {
-	background-color: #0064ff;
+	background-color: $toss-blue;
 }
 .edit {
 	background-color: green;
@@ -230,6 +271,9 @@ button {
 @media (max-width: 600px) {
 	.container {
 		padding: 20px 20px;
+		input {
+			font-size: small;
+		}
 	}
 }
 //About 페이지//

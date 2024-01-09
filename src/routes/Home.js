@@ -8,6 +8,10 @@ export default class Home extends Component {
 		const todoList = new TodoList().el
 
 		this.el.classList.add('container')
-		this.el.append(addTodo, todoList)
+		this.el.innerHTML = /*html*/ `
+		<div class="home-wrapper"></div>
+		`
+		const homeWrapper = this.el.querySelector('.home-wrapper')
+		homeWrapper.append(addTodo, todoList)
 	}
 }
