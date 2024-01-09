@@ -66,7 +66,7 @@ input:focus {
 }
 
 /* components-TheHeader */
-.header {
+.header-wrapper {
 	position: sticky;
 	height: 100px;
 	display: flex;
@@ -77,29 +77,58 @@ input:focus {
 	background-image: url(../public/header.jpg);
 	background-size: cover;
 
-	.bank-logo {
-		width: 18rem;
+	@media (max-width: 600px) {
+		padding: 0 20px;
 	}
-
+	.bank-logo {
+		width: 300px;
+		@media (max-width: 640px) {
+			width: 250px;
+		}
+	}
 	.menu a {
 		color: #eaeaea;
 		text-decoration: none;
-		padding: 0 30px;
+		padding: 0 50px;
 		font-size: 25px;
 		font-weight: 700;
 
 		&:first-child {
-			margin-left: 4rem;
+			margin-left: 2rem;
+			@media (max-width: 750px) {
+				margin: 10px;
+			}
+		}
+		@media (max-width: 830px) {
+			font-size: 1rem;
+			padding: 0 10px;
+			margin: 10px;
 		}
 	}
 }
-/* AddTodo Component*/
+
+/* container */
 .container {
 	display: flex;
 	justify-content: center;
+
+	@media (max-width: 1200px) {
+		.container {
+			padding: 40px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.container {
+			padding: 20px 20px;
+			input {
+				font-size: small;
+			}
+		}
+	}
 	.home-wrapper {
 		margin: 5rem;
-		width: 50rem;
+		width: 40rem;
 		border-radius: 20px;
 		background-color: #fff;
 		padding: 1rem 0.5rem;
@@ -114,6 +143,7 @@ input:focus {
 	font-weight: 700;
 }
 
+/* AddTodo Component*/
 .new-task {
 	max-width: 1120px;
 	margin: 1rem;
@@ -131,7 +161,7 @@ input:focus {
 	padding: 0;
 	margin: 0;
 	display: contents;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: 700;
 }
 .description__item {
@@ -149,20 +179,25 @@ input:focus {
 	align-items: center;
 	flex-grow: 1;
 	.task-input,
-	.date-input,
-	.status-input {
+	.date-input {
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		text-align: center;
 		line-height: 200%;
 		cursor: pointer;
 		background-color: transparent;
 		border: none;
-		font-size: 0.9rem;
-		font-weight: 700;
+		font-size: 0.8rem;
+		font-weight: 400;
 		color: gray;
 	}
 	background-color: white;
 	border-radius: 10px;
+	.add {
+		background-color: $toss-blue;
+		@media (max-width: 750px) {
+			width: 1.3rem;
+		}
+	}
 }
 
 // TodoList Component//
@@ -174,10 +209,11 @@ input:focus {
 	padding: 5px;
 	display: flex;
 	justify-content: flex-end;
-	gap: 30px;
+	gap: 20px;
 	button {
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		color: $toss-gray;
+		font-size: 0.7rem;
 		font-weight: 700;
 		padding: 5px;
 		transition:
@@ -195,9 +231,9 @@ input:focus {
 .task {
 	margin-top: 10px;
 	margin-bottom: 30px;
-	transition: width 200ms ease-in-out;
 }
-.task :hover {
+
+.edit-wrapper :hover {
 	background-color: $toss-blue;
 	border-radius: 15px;
 	border-color: none;
@@ -219,11 +255,11 @@ input:focus {
 	}
 }
 .task h4 {
-	width: 15rem;
+	width: 10rem;
 	text-align: center;
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 	color: $toss-gray;
-	font-size: x-small;
+	font-size: 0.65rem;
 	padding: 5px;
 	background-color: $light-gray;
 	border-top-right-radius: 10px;
@@ -236,13 +272,14 @@ input:focus {
 	border-top-right-radius: 15px;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	grid-template-columns: 50% 15% 20% 6% 6%;
+	grid-template-columns: 50% 17% 20% 6% 6%;
 }
 
 .edit-task__item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 	input {
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		text-align: center;
@@ -250,11 +287,14 @@ input:focus {
 		background-color: transparent;
 		border: transparent;
 		color: $toss-gray;
-		font-size: 1rem;
+		font-size: 0.92rem;
 		font-weight: 700;
+		@media (max-width: 600px) {
+			font-size: 0.7rem;
+		}
 	}
 	select {
-		zoom: 1.1;
+		font-size: 0.75rem;
 		border: transparent;
 		background-color: $toss-gray;
 		border-radius: 8px;
@@ -263,9 +303,16 @@ input:focus {
 		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		text-align: center;
 		cursor: pointer;
+		@media (max-width: 600px) {
+			font-size: 0.55rem;
+		}
 	}
 	.date-input {
+		font-size: 0.8rem;
 		cursor: pointer;
+		@media (max-width: 600px) {
+			font-size: 0.5rem;
+		}
 	}
 }
 button {
@@ -277,30 +324,23 @@ button {
 	align-items: center;
 	cursor: pointer;
 }
-.add {
-	background-color: $toss-blue;
-}
 .edit {
 	background-color: green;
+	height: 1.4rem;
+	width: 1.7rem;
+	@media (max-width: 750px) {
+		width: 1.2rem;
+	}
 }
 .delete {
 	background-color: #bf360c;
-}
-
-@media (max-width: 1200px) {
-	.container {
-		padding: 40px;
+	height: 1.4rem;
+	width: 1.7rem;
+	@media (max-width: 750px) {
+		width: 1.2rem;
 	}
 }
 
-@media (max-width: 600px) {
-	.container {
-		padding: 20px 20px;
-		input {
-			font-size: small;
-		}
-	}
-}
 //About 페이지//
 .about {
 	color: white;
@@ -312,7 +352,7 @@ button {
 		width: 50rem;
 	}
 	img {
-		width: 40rem;
+		height: 20rem;
 		margin: 5rem;
 		border-radius: 20px;
 	}
@@ -328,7 +368,7 @@ button {
 		display: flex;
 		flex-direction: column;
 		.developer_intro {
-			font-size: 2rem;
+			font-size: 1.8rem;
 			text-align: center;
 			margin: 1rem;
 		}
@@ -342,7 +382,7 @@ button {
 	}
 
 	.name {
-		font-size: 40px;
+		font-size: 1.6rem;
 	}
 
 	p {
