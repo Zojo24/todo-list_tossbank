@@ -1,18 +1,30 @@
-/*Colours*/
+/* Colours */
 $blue: #3498db;
 $toss-gray: #202632;
 $toss-blue: #0064ff;
 $light-gray: rgb(236, 236, 236);
 
-body {
+@mixin font {
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	text-align: center;
+}
+
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* commono */
+body {
+	@include font;
 	background-color: #000000;
 }
 input:focus {
 	outline: none;
 }
 
-/*loading animation*/
+/* loading animation */
 .loader {
 	width: 30px;
 	height: 30px;
@@ -21,58 +33,56 @@ input:focus {
 	border-top-color: transparent;
 	border-radius: 50%;
 	animation: loader 1s infinite linear;
-}
-.loader.hide {
-	display: none;
-}
-@keyframes loader {
-	0% {
-		transform: rotate(0deg);
+	&.loader.hide {
+		display: none;
 	}
-	100% {
-		transform: rotate(360deg);
+	@keyframes loader {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
 }
-/*skeleton loading animation*/
+/* skeleton loading animation */
 .skeleton {
 	position: relative;
 	overflow: hidden;
 	border-radius: 10px;
 	background-color: black;
-}
-.skeleton::after {
-	content: '';
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-image: linear-gradient(
-		270deg,
-		rgba(255, 255, 255, 0),
-		rgba(255, 255, 255, 0.1),
-		rgba(255, 255, 255, 0)
-	);
-	transform: translateX(-100%);
-	animation: skeleton-loader 2s infinite;
-}
-@keyframes skeleton-loader {
-	0% {
+	&::after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: linear-gradient(
+			270deg,
+			rgba(255, 255, 255, 0),
+			rgba(255, 255, 255, 0.1),
+			rgba(255, 255, 255, 0)
+		);
 		transform: translateX(-100%);
+		animation: skeleton-loader 2s infinite;
 	}
-	100% {
-		transform: translateX(100%);
+	@keyframes skeleton-loader {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(100%);
+		}
 	}
 }
-
-/* components-TheHeader */
+/* TheHeader Component */
 .header-wrapper {
 	position: sticky;
 	height: 100px;
 	display: flex;
 	justify-content: left;
 	align-items: center;
-	padding: 0 50px;
 	z-index: 6;
 	background-image: url(../public/header.jpg);
 	background-size: cover;
@@ -109,22 +119,14 @@ input:focus {
 
 /* container */
 .container {
-	display: flex;
-	justify-content: center;
+	@include center;
 
 	@media (max-width: 1200px) {
-		.container {
-			padding: 40px;
-		}
+		padding: 40px;
 	}
 
 	@media (max-width: 600px) {
-		.container {
-			padding: 20px 20px;
-			input {
-				font-size: small;
-			}
-		}
+		padding: 20px 20px;
 	}
 	.home-wrapper {
 		margin: 5rem;
@@ -133,14 +135,14 @@ input:focus {
 		background-color: #fff;
 		padding: 1rem 0.5rem;
 	}
-}
-.title {
-	max-width: 1120px;
-	padding: 1rem;
-	color: $toss-gray;
-	text-align: center;
-	font-size: 2rem;
-	font-weight: 700;
+	.title {
+		max-width: 1120px;
+		padding: 1rem;
+		color: $toss-gray;
+		text-align: center;
+		font-size: 2rem;
+		font-weight: 700;
+	}
 }
 
 /* AddTodo Component*/
@@ -155,109 +157,104 @@ input:focus {
 	justify-content: space-between;
 	grid-template-rows: repeat(2, 1fr);
 	grid-template-columns: 55% 23% 10%;
-}
-.description {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	display: contents;
-	font-size: 1rem;
-	font-weight: 700;
-}
-.description__item {
-	padding: 10px;
-	text-align: center;
-	margin-bottom: 20px;
-}
-.new-input {
-	list-style-type: none;
-	display: contents;
-}
-.new-input__item {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-grow: 1;
-	.task-input,
-	.date-input {
-		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-		text-align: center;
-		line-height: 200%;
-		cursor: pointer;
-		background-color: transparent;
-		border: none;
-		font-size: 0.8rem;
-		font-weight: 400;
-		color: gray;
+	.description {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display: contents;
+		font-size: 1rem;
+		font-weight: 700;
 	}
-	background-color: white;
-	border-radius: 10px;
-	.add {
-		background-color: $toss-blue;
-		@media (max-width: 750px) {
-			width: 1.3rem;
+	.description__item {
+		padding: 10px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.new-input {
+		list-style-type: none;
+		display: contents;
+	}
+	.new-input__item {
+		@include center;
+		flex-grow: 1;
+		.task-input,
+		.date-input {
+			@include font;
+			line-height: 200%;
+			cursor: pointer;
+			background-color: transparent;
+			border: none;
+			font-size: 0.8rem;
+			font-weight: 400;
+			color: gray;
+		}
+		background-color: white;
+		border-radius: 10px;
+		.add {
+			background-color: $toss-blue;
+			@media (max-width: 750px) {
+				width: 1.3rem;
+			}
 		}
 	}
 }
 
-// TodoList Component//
+/* TodoList Component */
 .todo-list {
 	max-width: 1200px;
 	margin: 1rem;
-}
-.filter {
-	padding: 5px;
-	display: flex;
-	justify-content: flex-end;
-	gap: 20px;
-	button {
-		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-		color: $toss-gray;
-		font-size: 0.7rem;
-		font-weight: 700;
+	.filter {
 		padding: 5px;
-		transition:
-			box-shadow 300ms ease-in-out,
-			color 300ms ease-in-out;
-		&:hover {
-			box-shadow: 0 0 40px 50px $toss-gray inset;
-			color: #fff;
-			border-color: none;
+		display: flex;
+		justify-content: flex-end;
+		gap: 20px;
+		button {
+			@include font;
+			color: $toss-gray;
+			font-size: 0.7rem;
+			font-weight: 700;
+			padding: 5px;
+			transition:
+				box-shadow 300ms ease-in-out,
+				color 300ms ease-in-out;
+			&:hover {
+				box-shadow: 0 0 40px 50px lighten($toss-gray, 30%) inset;
+				color: #fff;
+				border-color: none;
+			}
 		}
 	}
 }
 
-// TodoItem Component//
+/* TodoItem Component */
 .task {
 	margin-top: 10px;
 	margin-bottom: 30px;
-}
-
-.edit-wrapper :hover {
-	background-color: $toss-blue;
-	border-radius: 15px;
-	border-color: none;
-	input {
-		color: #fff;
-		transition: color 200ms ease-in-out;
-	}
-	.status-input {
-		background-color: $toss-gray;
-		border-radius: 5px;
-	}
-	.edit span {
-		background-color: green;
-		border-radius: 5px;
-	}
-	.delete span {
-		background-color: #bf360c;
-		border-radius: 5px;
+	.edit-wrapper :hover {
+		background-color: lighten($toss-blue, 25%);
+		border-radius: 15px;
+		border-color: none;
+		input {
+			color: #fff;
+			transition: color 200ms ease-in-out;
+		}
+		.status-input {
+			background-color: $toss-gray;
+			border-radius: 5px;
+		}
+		.edit span {
+			background-color: green;
+			border-radius: 5px;
+		}
+		.delete span {
+			background-color: #bf360c;
+			border-radius: 5px;
+		}
 	}
 }
 .task h4 {
 	width: 10rem;
-	text-align: center;
-	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	@include font;
 	color: $toss-gray;
 	font-size: 0.65rem;
 	padding: 5px;
@@ -273,16 +270,15 @@ input:focus {
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	grid-template-columns: 50% 17% 20% 6% 6%;
+	@media (max-width: 850px) {
+		grid-template-columns: 40% 20% 20% 8% 8%;
+	}
 }
-
 .edit-task__item {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include center;
 	cursor: pointer;
 	input {
-		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-		text-align: center;
+		@include font;
 		flex-grow: 1;
 		background-color: transparent;
 		border: transparent;
@@ -300,8 +296,7 @@ input:focus {
 		border-radius: 8px;
 		padding: 2px 1px 4px 4px;
 		color: white;
-		font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-		text-align: center;
+		@include font;
 		cursor: pointer;
 		@media (max-width: 600px) {
 			font-size: 0.55rem;
@@ -310,8 +305,11 @@ input:focus {
 	.date-input {
 		font-size: 0.8rem;
 		cursor: pointer;
-		@media (max-width: 600px) {
-			font-size: 0.5rem;
+		@media (max-width: 1000px) {
+			font-size: 0.7rem;
+		}
+		@media (max-width: 700px) {
+			font-size: 0.6rem;
 		}
 	}
 }
@@ -319,9 +317,7 @@ button {
 	border-radius: 10px;
 	border-color: transparent;
 	color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include center;
 	cursor: pointer;
 }
 .edit {
@@ -341,13 +337,11 @@ button {
 	}
 }
 
-//About 페이지//
+/* About 페이지*/
 .about {
 	color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	@include center;
+	@include font;
 	.container {
 		width: 50rem;
 	}
