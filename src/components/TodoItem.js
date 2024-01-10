@@ -60,7 +60,6 @@ export default class TodoItem extends Component {
 			const done = doneTemp === 'false'
 			const title = taskInput + '##' + dateInput
 			updateTodo(id, title, done)
-			console.log(done)
 		})
 
 		const statusInput = this.el.querySelector('.status-input')

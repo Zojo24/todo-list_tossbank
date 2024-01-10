@@ -49,7 +49,6 @@ export const readTodo = async () => {
 		)
 		const result = await res.json()
 		store.state.todoItems = result
-		console.log(store.state.todoItems)
 		store.state.loading = false
 	} catch (error) {
 		console.log('readTodo error:', error)
