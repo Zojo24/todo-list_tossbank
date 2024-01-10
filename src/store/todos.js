@@ -1,8 +1,6 @@
 import { Store } from '../core/zojo'
 
 const store = new Store({
-	tasks: {},
-	status: {},
 	todoItems: [],
 	todoItem: {},
 	loading: false
