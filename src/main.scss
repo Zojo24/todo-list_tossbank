@@ -264,8 +264,8 @@ input:focus {
 		color: $toss-gray;
 		font-size: 0.92rem;
 		font-weight: 700;
-		@media (max-width: 600px) {
-			font-size: 0.7rem;
+		@media (max-width: 850px) {
+			font-size: 0.65rem;
 		}
 	}
 	select {
@@ -278,7 +278,7 @@ input:focus {
 		@include font;
 		cursor: pointer;
 		@media (max-width: 600px) {
-			font-size: 0.55rem;
+			font-size: 0.5rem;
 		}
 	}
 	.date-input {
@@ -288,7 +288,7 @@ input:focus {
 			font-size: 0.7rem;
 		}
 		@media (max-width: 700px) {
-			font-size: 0.6rem;
+			font-size: 0.55rem;
 		}
 	}
 }

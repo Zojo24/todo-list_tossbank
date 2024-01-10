@@ -32,7 +32,8 @@ export default class TodoList extends Component {
 		activeButton.addEventListener('click', () => {
 			const taskActive = this.el.querySelectorAll('.task-active')
 			taskActive.forEach(i => {
-				const itemDisplay = i.parentNode.parentNode.parentNode.parentNode
+				const itemDisplay =
+					i.parentNode.parentNode.parentNode.parentNode.parentNode
 				if (!i.selected) {
 					if (itemDisplay.style.display === 'none') {
 						itemDisplay.style.display = 'block'
@@ -46,7 +47,8 @@ export default class TodoList extends Component {
 		completedButton.addEventListener('click', () => {
 			const taskCompleted = this.el.querySelectorAll('.task-completed')
 			taskCompleted.forEach(i => {
-				const itemDisplay = i.parentNode.parentNode.parentNode.parentNode
+				const itemDisplay =
+					i.parentNode.parentNode.parentNode.parentNode.parentNode
 				if (!i.selected) {
 					if (itemDisplay.style.display === 'none') {
 						itemDisplay.style.display = 'block'
