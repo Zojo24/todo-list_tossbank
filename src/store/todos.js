@@ -138,7 +138,6 @@ export const reorderTodo = async todoIds => {
 				})
 			}
 		)
-		readTodo()
 	} catch (error) {
 		console.log('reorderTodo error:', error)
 	}
