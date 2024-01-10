@@ -57,7 +57,6 @@ export const readTodo = async () => {
 //항목 수정하기//
 export const updateTodo = async (id, title, done) => {
 	try {
-		console.log(id, title, done)
 		const res = await fetch(
 			`https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${id}`,
 			{
