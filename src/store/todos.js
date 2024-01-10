@@ -1,13 +1,16 @@
 import { Store } from '../core/zojo'
 
 const store = new Store({
+	tasks: {},
+	status: {},
 	todoItems: [],
 	todoItem: {},
 	loading: false
 })
 
-//항목 생성하기//
 export default store
+
+//항목 생성하기//
 export const createTodo = async title => {
 	try {
 		const res = await fetch(

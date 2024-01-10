@@ -15,7 +15,13 @@ $light-gray: rgb(236, 236, 236);
 	align-items: center;
 }
 
-/* commono */
+@mixin item {
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+/* common */
 body {
 	@include font;
 	background-color: #000000;
@@ -45,37 +51,7 @@ input:focus {
 		}
 	}
 }
-/* skeleton loading animation */
-.skeleton {
-	position: relative;
-	overflow: hidden;
-	border-radius: 10px;
-	background-color: black;
-	&::after {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-image: linear-gradient(
-			270deg,
-			rgba(255, 255, 255, 0),
-			rgba(255, 255, 255, 0.1),
-			rgba(255, 255, 255, 0)
-		);
-		transform: translateX(-100%);
-		animation: skeleton-loader 2s infinite;
-	}
-	@keyframes skeleton-loader {
-		0% {
-			transform: translateX(-100%);
-		}
-		100% {
-			transform: translateX(100%);
-		}
-	}
-}
+
 /* TheHeader Component */
 .header-wrapper {
 	position: sticky;
@@ -84,7 +60,7 @@ input:focus {
 	justify-content: left;
 	align-items: center;
 	z-index: 6;
-	background-image: url(../public/header.jpg);
+	background-image: url(/header.jpg);
 	background-size: cover;
 
 	@media (max-width: 600px) {
@@ -218,7 +194,7 @@ input:focus {
 				box-shadow 300ms ease-in-out,
 				color 300ms ease-in-out;
 			&:hover {
-				box-shadow: 0 0 40px 50px lighten($toss-gray, 30%) inset;
+				box-shadow: 0 0 40px 50px lighten($toss-gray, 10%) inset;
 				color: #fff;
 				border-color: none;
 			}
@@ -232,7 +208,7 @@ input:focus {
 	margin-bottom: 30px;
 	.edit-wrapper :hover {
 		background-color: lighten($toss-blue, 25%);
-		border-radius: 15px;
+		@include item;
 		border-color: none;
 		input {
 			color: #fff;
@@ -266,20 +242,23 @@ input:focus {
 	height: 3.5rem;
 	display: grid;
 	background-color: #dbeaff;
-	border-top-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	grid-template-columns: 50% 17% 20% 6% 6%;
+	@include item;
+	grid-template-columns: 5% 45% 17% 20% 6% 6%;
 	@media (max-width: 850px) {
-		grid-template-columns: 40% 20% 20% 8% 8%;
+		grid-template-columns: 3% 40% 20% 20% 8% 8%;
 	}
+}
+.drag {
+	@include center;
+	cursor: pointer;
+	text-align: center;
+	margin-left: 20px;
 }
 .edit-task__item {
 	@include center;
 	cursor: pointer;
 	input {
 		@include font;
-		flex-grow: 1;
 		background-color: transparent;
 		border: transparent;
 		color: $toss-gray;
@@ -349,9 +328,6 @@ button {
 		height: 20rem;
 		margin: 5rem;
 		border-radius: 20px;
-	}
-	img.skeleton {
-		width: 40rem;
 	}
 	.intro.skeleton {
 		height: 230px;
