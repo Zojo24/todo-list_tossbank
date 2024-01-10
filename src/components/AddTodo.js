@@ -41,6 +41,13 @@ export default class AddTodo extends Component {
 			? loaderEl.classList.remove('hide')
 			: loaderEl.classList.add('hide')
 
+		const validateInput = this.el.querySelector('.task-input')
+		validateInput.addEventListener('keyup', () => {
+			if (validateInput.value.length - 1 > 12) {
+				console.log(validateInput.value)
+				validateInput.value = validateInput.value.slice(0, 13)
+			}
+		})
 		const addButton = this.el.querySelector('.add')
 		addButton.addEventListener('click', () => {
 			const taskInput = this.el.querySelector('.task-input').value
