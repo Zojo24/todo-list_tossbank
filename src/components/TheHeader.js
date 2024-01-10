@@ -23,7 +23,7 @@ export default class TheHeader extends Component {
 		this.el.innerHTML = /*html*/ `
 		<div class="header-wrapper">
 			<a href="#/">
-				<img class=bank-logo src="/public/TossBank_Logo_Primary_Reverse.png" alt="Toss Bank logo"/>
+				<img class=bank-logo src="/TossBank_Logo_Primary_Reverse.png" alt="Toss Bank logo"/>
 			</a>
 			<div class="menu">			
 				<a href="#/">Todo List</a>
