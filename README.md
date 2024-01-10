@@ -76,4 +76,6 @@ addButton.addEventListener('click', () => {
 
 #### Todo List 화면 
 
-<img width="944" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/b8628a1b-0d2a-4dfa-9553-8ae47139978e">
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/b8628a1b-0d2a-4dfa-9553-8ae47139978e">
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/770bf8c1-f965-4eea-984e-479563b3b096">
+
