@@ -216,6 +216,7 @@ input:focus {
 					transition: 0.4s;
 					@include center;
 					@include font;
+					color: $toss-gray;
 					font-size: 0.6rem;
 					font-weight: 700;
 				}
@@ -251,15 +252,15 @@ input:focus {
 			color: $toss-gray;
 			font-size: 0.6rem;
 			font-weight: 700;
+			background-color: #ccc;
 			border-radius: 34px;
 			padding: 5px;
 			transition:
 				box-shadow 0.3ms ease-in-out,
 				color 0.3ms ease-in-out;
 			&:hover {
-				box-shadow: 0 0 40px 50px lighten($toss-gray, 10%) inset;
+				box-shadow: 0 0 40px 50px lighten($toss-gray, 15%) inset;
 				color: #fff;
-				border-color: none;
 			}
 		}
 	}
