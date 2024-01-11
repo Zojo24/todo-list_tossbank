@@ -1,6 +1,6 @@
 # 📌 기업의 할 일(Todo) 관리 페이지 만들기
 
-배포 사이트: (https://tossbank-todo-list.vercel.app)
+배포 사이트: (https://todo-list-tossbank.vercel.app/#/)
 
 ## 개발 기간
 
