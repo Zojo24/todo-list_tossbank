@@ -14,14 +14,9 @@ export default class TodoList extends Component {
 		this.el.classList.add('todo-list')
 		this.el.innerHTML = /*html*/ `
 			<div class="filter">
-				<label class="switch">
-					<input type="checkbox">
-					<span class="slider1 round active"></span>
-				</label>
-				<label class="switch">
-					<input type="checkbox">
-					<span class="slider2 round completed"></span>
-				</label>
+				<button class="show-all">전체보기</button>
+				<button class="active">진행중</button>
+				<button class="completed">완료</button>
 				<button class="delete-all">완료 삭제</button>
 			</div>
 			<div class="todo-item sortable"></div>
@@ -33,34 +28,48 @@ export default class TodoList extends Component {
 			)
 		)
 
-		// 진행중&완료 항목 분류 //
+		// 전체보기 & 진행중 & 완료 항목 분류 //
+		const allButton = this.el.querySelector('.show-all')
+		allButton.addEventListener('click', () => {
+			const taskActive = this.el.querySelectorAll('.task-active')
+			taskActive.forEach(i => {
+				const itemDisplay =
+					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				itemDisplay.style.display = 'block'
+			})
+		})
+
 		const activeButton = this.el.querySelector('.active')
 		activeButton.addEventListener('click', () => {
 			const taskActive = this.el.querySelectorAll('.task-active')
 			taskActive.forEach(i => {
 				const itemDisplay =
 					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				itemDisplay.style.display = 'block'
+			})
+			taskActive.forEach(i => {
+				const itemDisplay =
+					i.parentNode.parentNode.parentNode.parentNode.parentNode
 				if (!i.selected) {
-					if (itemDisplay.style.display === 'none') {
-						itemDisplay.style.display = 'block'
-					} else {
-						itemDisplay.style.display = 'none'
-					}
+					itemDisplay.style.display = 'block'
+					itemDisplay.style.display = 'none'
 				}
 			})
 		})
 		const completedButton = this.el.querySelector('.completed')
 		completedButton.addEventListener('click', () => {
 			const taskCompleted = this.el.querySelectorAll('.task-completed')
+			const taskActive = this.el.querySelectorAll('.task-active')
+			taskActive.forEach(i => {
+				const itemDisplay =
+					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				itemDisplay.style.display = 'block'
+			})
 			taskCompleted.forEach(i => {
 				const itemDisplay =
 					i.parentNode.parentNode.parentNode.parentNode.parentNode
 				if (!i.selected) {
-					if (itemDisplay.style.display === 'none') {
-						itemDisplay.style.display = 'block'
-					} else {
-						itemDisplay.style.display = 'none'
-					}
+					itemDisplay.style.display = 'none'
 				}
 			})
 		})

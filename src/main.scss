@@ -184,69 +184,6 @@ input:focus {
 		display: flex;
 		justify-content: flex-end;
 		gap: 20px;
-		.switch {
-			position: relative;
-			display: inline-block;
-			width: 60px;
-			height: 34px;
-			input {
-				display: none;
-			}
-
-			.slider1,
-			.slider2 {
-				position: absolute;
-				cursor: pointer;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-color: #ccc;
-				-webkit-transition: 0.4s;
-				transition: 0.4s;
-				&:before {
-					position: absolute;
-					content: '진행중';
-					height: 20px;
-					width: 40px;
-					left: 4px;
-					top: 20%;
-					background-color: white;
-					-webkit-transition: 0.4s;
-					transition: 0.4s;
-					@include center;
-					@include font;
-					color: $toss-gray;
-					font-size: 0.6rem;
-					font-weight: 700;
-				}
-
-				&.round {
-					border-radius: 34px;
-
-					&:before {
-						border-radius: 10px;
-					}
-				}
-			}
-			.slider2 {
-				&:before {
-					content: '완료';
-				}
-			}
-
-			input:checked + .slider1,
-			input:checked + .slider2 {
-				background-color: $toss-blue;
-
-				&:before {
-					-webkit-transform: translateX(13px);
-					-ms-transform: translateX(13px);
-					transform: translateX(13px);
-				}
-			}
-		}
-
 		button {
 			@include font;
 			color: $toss-gray;
