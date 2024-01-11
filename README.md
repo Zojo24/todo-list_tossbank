@@ -25,7 +25,7 @@
 
 - [x] 할 일 항목을 수정할 수 있도록 만들어보세요.
 - [x] 할 일 항목을 삭제할 수 있도록 만들어보세요.
-- [x] 할 일 항목의 순서를 바꿀 수 있도록 만들어보세요. (추천 라이브러리 - [SortableJS](http://sortablejs.github.io/Sortable/))
+- [x] 할 일 항목의 순서를 바꿀 수 있도록 만들어보세요.
 - [x] 할 일을 완료하지 않은 항목과 완료한 항목을 분류해서 출력해보세요.
 - [x] 할 일을 완료한 항목을 한 번에 삭제할 수 있도록 만들어보세요.
 - [x] 할 일 항목의 최신 수정일을 표시해보세요.
@@ -58,13 +58,20 @@ addButton.addEventListener('click', () => {
 
 작업의 진행 상황을 확인할 수 있는 기능을 제공합니다. 작업의 진행 상태를 쉽게 파악할 수 있습니다.
 
+<img width="175" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/89e5a1e3-d97b-46d1-8dca-90d531d2d365">
+
 ### 항목 분류
 
 진행 중인 항목과 완료된 항목을 토글 버튼을 통해 쉽게 구분하여 확인할 수 있습니다.
 
+<img width="254" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/68c9161b-440b-4876-887b-9a0ae780f616">
+
 ### 드래그 앤 드롭
 
 사용자가 각각의 할 일 항목을 드래그하여 작업 순서를 자유롭게 조정할 수 있도록 하였습니다. 작업의 우선순위를 쉽게 조절할 수 있습니다.
+
+<img width="241" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/ee32ab8e-dae3-4442-9f5e-55beb7273acb">
+
 
 ### 최신 수정일 표시
 
@@ -74,7 +81,11 @@ addButton.addEventListener('click', () => {
 
 새로운 작업 내용이 업로드되는 동안 로딩 애니메이션이 표시됩니다. 사용자는 작업이 업데이트되고 있는지를 시각적으로 확인할 수 있습니다.
 
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/c14a7f21-cc6f-41e5-b395-d802730dac9d">
+
+
 #### Todo List 화면
 
-![Alt text](image-1.png)
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/1376d262-730b-4f02-8649-f559b2ae5449">
+
 <img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/770bf8c1-f965-4eea-984e-479563b3b096">
