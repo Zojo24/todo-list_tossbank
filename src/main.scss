@@ -256,8 +256,8 @@ input:focus {
 			border-radius: 34px;
 			padding: 5px;
 			transition:
-				box-shadow 0.3ms ease-in-out,
-				color 0.3ms ease-in-out;
+				box-shadow 0.3s ease-in-out,
+				color 0.3s ease-in-out;
 			&:hover {
 				box-shadow: 0 0 40px 50px lighten($toss-gray, 15%) inset;
 				color: #fff;
@@ -276,7 +276,7 @@ input:focus {
 		border-color: none;
 		input {
 			color: #fff;
-			transition: color 200ms ease-in-out;
+			transition: color 0.2s ease-in-out;
 		}
 		.status-input {
 			background-color: $toss-gray;
