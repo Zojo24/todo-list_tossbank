@@ -1,6 +1,6 @@
 # 📌 기업의 할 일(Todo) 관리 페이지 만들기
 
-배포 사이트: (https://tossbank-todo-list.vercel.app)
+배포 사이트: (https://todo-list-tossbank.vercel.app/#/)
 
 ## 개발 기간
 
@@ -74,8 +74,7 @@ addButton.addEventListener('click', () => {
 
 새로운 작업 내용이 업로드되는 동안 로딩 애니메이션이 표시됩니다. 사용자는 작업이 업데이트되고 있는지를 시각적으로 확인할 수 있습니다.
 
-#### Todo List 화면 
+#### Todo List 화면
 
-<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/b8628a1b-0d2a-4dfa-9553-8ae47139978e">
+![Alt text](image-1.png)
 <img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/770bf8c1-f965-4eea-984e-479563b3b096">
-

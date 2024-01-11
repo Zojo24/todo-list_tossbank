@@ -2,7 +2,7 @@
 $blue: #3498db;
 $toss-gray: #202632;
 $toss-blue: #0064ff;
-$light-gray: rgb(236, 236, 236);
+$light-gray: rgb(230, 230, 230);
 
 @mixin font {
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
@@ -183,20 +183,27 @@ input:focus {
 		padding: 5px;
 		display: flex;
 		justify-content: flex-end;
-		gap: 20px;
+		gap: 15px;
 		button {
+			width: 3.2rem;
+			height: 1.5rem;
 			@include font;
 			color: $toss-gray;
 			font-size: 0.6rem;
 			font-weight: 700;
-			background-color: #ccc;
+			background-color: $light-gray;
 			border-radius: 34px;
-			padding: 5px;
 			transition:
 				box-shadow 0.3s ease-in-out,
 				color 0.3s ease-in-out;
 			&:hover {
 				box-shadow: 0 0 40px 50px lighten($toss-gray, 15%) inset;
+				color: #fff;
+			}
+		}
+		.delete-all {
+			&:hover {
+				box-shadow: 0 0 40px 50px darken(red, 25%) inset;
 				color: #fff;
 			}
 		}
@@ -257,7 +264,6 @@ input:focus {
 }
 .edit-task__item {
 	@include center;
-	cursor: pointer;
 	input {
 		@include font;
 		background-color: transparent;
@@ -276,15 +282,14 @@ input:focus {
 		border-radius: 8px;
 		padding: 2px 1px 4px 4px;
 		color: white;
-		@include font;
 		cursor: pointer;
+		@include font;
 		@media (max-width: 600px) {
 			font-size: 0.5rem;
 		}
 	}
 	.date-input {
 		font-size: 0.8rem;
-		cursor: pointer;
 		@media (max-width: 1000px) {
 			font-size: 0.7rem;
 		}
