@@ -1,4 +1,4 @@
-# 📌 기업의 할 일(Todo) 관리 페이지 만들기
+# Toss Bank 할 일 관리 페이지
 
 배포 사이트: (https://todo-list-tossbank.vercel.app/#/)
 
@@ -33,6 +33,12 @@
 - [ ] 기타 동작이 완료되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
 - [x] 차별화가 가능하도록 프로젝트를 최대한 예쁘게 만들어보세요.
 - [x] 할 일과 관련된 기타 기능도 고려해보세요.
+
+## Todo List 화면
+
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/1376d262-730b-4f02-8649-f559b2ae5449">
+
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/770bf8c1-f965-4eea-984e-479563b3b096">
 
 ## 📌구현한 기능
 
@@ -83,9 +89,3 @@ addButton.addEventListener('click', () => {
 
 <img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/c14a7f21-cc6f-41e5-b395-d802730dac9d">
 
-
-#### Todo List 화면
-
-<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/1376d262-730b-4f02-8649-f559b2ae5449">
-
-<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/770bf8c1-f965-4eea-984e-479563b3b096">
