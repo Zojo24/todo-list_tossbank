@@ -1,4 +1,4 @@
-# 📌 기업의 할 일(Todo) 관리 페이지 만들기
+# Toss Bank 할 일 관리 페이지
 
 배포 사이트: (https://todo-list-tossbank.vercel.app/#/)
 
@@ -6,9 +6,13 @@
 
 - 2023.12.26 ~ 2024.01.10
 
+
+
 ## 프로젝트 소개
 
 이 프로젝트는 가상의 Toss Bank 할 일 관리 페이지로, 해당 기업의 공식 컬러와 폰트를 활용하여 디자인되었습니다. 주요 목표는 JavaScript를 사용하여 데이터를 동적으로 처리하고 할 일과 관련된 여러 기능을 구현하는 것입니다.
+
+
 
 ## 요구사항
 
@@ -34,11 +38,22 @@
 - [x] 차별화가 가능하도록 프로젝트를 최대한 예쁘게 만들어보세요.
 - [x] 할 일과 관련된 기타 기능도 고려해보세요.
 
+
+
+## Todo List 화면
+
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/1376d262-730b-4f02-8649-f559b2ae5449">
+
+<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/770bf8c1-f965-4eea-984e-479563b3b096">
+
+
+
 ## 📌구현한 기능
 
 ### API 활용
 
 CRUD 기능을 통해 서버와 데이터를 주고받을 수 있습니다. 항목을 추가, 조회, 수정 및 삭제할 수 있습니다.
+
 
 ### 마감일 추가
 
@@ -54,17 +69,20 @@ addButton.addEventListener('click', () => {
 })
 ```
 
+
 ### 진행 상황 확인
 
 작업의 진행 상황을 확인할 수 있는 기능을 제공합니다. 작업의 진행 상태를 쉽게 파악할 수 있습니다.
 
 <img width="175" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/89e5a1e3-d97b-46d1-8dca-90d531d2d365">
 
+
 ### 항목 분류
 
 진행 중인 항목과 완료된 항목을 토글 버튼을 통해 쉽게 구분하여 확인할 수 있습니다.
 
 <img width="254" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/68c9161b-440b-4876-887b-9a0ae780f616">
+
 
 ### 드래그 앤 드롭
 
@@ -73,9 +91,11 @@ addButton.addEventListener('click', () => {
 <img width="241" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/ee32ab8e-dae3-4442-9f5e-55beb7273acb">
 
 
+
 ### 최신 수정일 표시
 
 최근 수정일을 별도로 표시하여 날짜 기록이 가능하며, 항목을 수정하면 수정일이 자동으로 업데이트 됩니다. 작업의 변경 이력을 관리할 수 있습니다.
+
 
 ### 로딩 애니메이션 추가
 
@@ -83,9 +103,3 @@ addButton.addEventListener('click', () => {
 
 <img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/c14a7f21-cc6f-41e5-b395-d802730dac9d">
 
-
-#### Todo List 화면
-
-<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/1376d262-730b-4f02-8649-f559b2ae5449">
-
-<img width="500" alt="image" src="https://github.com/KDT1-FE/KDT7-M2/assets/150096317/770bf8c1-f965-4eea-984e-479563b3b096">
