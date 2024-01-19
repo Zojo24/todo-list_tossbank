@@ -91,7 +91,7 @@ export default class TodoList extends Component {
 		})
 		todoListEl.addEventListener('mouseup', () => {
 			setTimeout(() => {
-				let arr = []
+				const arr = []
 				const todoIds = this.el.querySelectorAll('.todo-id')
 				todoIds.forEach(todoId => arr.push(todoId.value))
 				reorderTodo(arr)

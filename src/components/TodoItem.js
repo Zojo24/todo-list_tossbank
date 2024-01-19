@@ -1,6 +1,8 @@
 import { Component } from '../core/zojo'
 import todoStore, { deleteTodo, updateTodo } from '../store/todos'
 
+const titleSpliter = '##'
+
 export default class TodoItem extends Component {
 	constructor(props) {
 		super({ props, tagName: 'div' })
@@ -19,11 +21,13 @@ export default class TodoItem extends Component {
           <input class="todo-id" value =${todoItem.id} />
         </li>
         <li class="edit-task__item">
-          <input class="task-input" value="${todoItem.title.split('##')[0]}" />
+          <input class="task-input" value="${
+						todoItem.title.split(titleSpliter)[0]
+					}" />
         </li>
         <li class="edit-task__item">
           <input class="date-input" type="date" value=${
-						todoItem.title.split('##')[1]
+						todoItem.title.split(titleSpliter)[1]
 					} />
         </li>
         <li class="edit-task__item">
@@ -51,7 +55,6 @@ export default class TodoItem extends Component {
 		deleteButton.addEventListener('click', () => deleteTodo(id))
 
 		//항목 수정하기//
-		const titleSpliter = '##'
 		const editButton = this.el.querySelector('.edit')
 		editButton.addEventListener('click', () => {
 			const id = this.el.querySelector('.todo-id').value

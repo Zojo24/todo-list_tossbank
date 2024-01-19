@@ -1,9 +1,11 @@
 import { Component } from '../core/zojo'
+import Headline from '../components/Headline'
 import AddTodo from '../components/AddTodo'
 import TodoList from '../components/TodoList'
 
 export default class Home extends Component {
 	render() {
+		const headline = new Headline().el
 		const addTodo = new AddTodo().el
 		const todoList = new TodoList().el
 
@@ -12,6 +14,6 @@ export default class Home extends Component {
 		<div class="home-wrapper"></div>
 		`
 		const homeWrapper = this.el.querySelector('.home-wrapper')
-		homeWrapper.append(addTodo, todoList)
+		homeWrapper.append(headline, addTodo, todoList)
 	}
 }
