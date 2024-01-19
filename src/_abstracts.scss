@@ -1,0 +1,22 @@
+/* Colours */
+$blue: #3498db;
+$toss-gray: #202632;
+$toss-blue: #0064ff;
+$light-gray: rgb(230, 230, 230);
+
+@mixin font {
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	text-align: center;
+}
+
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin item {
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}

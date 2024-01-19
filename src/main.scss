@@ -1,25 +1,5 @@
-/* Colours */
-$blue: #3498db;
-$toss-gray: #202632;
-$toss-blue: #0064ff;
-$light-gray: rgb(230, 230, 230);
-
-@mixin font {
-	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-	text-align: center;
-}
-
-@mixin center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-@mixin item {
-	border-top-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
+@import 'abstracts';
+@import 'breakpoints';
 
 /* common */
 body {
@@ -38,8 +18,8 @@ input:focus {
 	border: 7px solid $toss-blue;
 	border-top-color: transparent;
 	border-radius: 50%;
-	animation: loader 1s infinite linear;
-	&.loader.hide {
+	animation: loader 2s infinite linear;
+	&.hide {
 		display: none;
 	}
 	@keyframes loader {
@@ -62,15 +42,9 @@ input:focus {
 	z-index: 6;
 	background-image: url(/header.jpg);
 	background-size: cover;
-
-	@media (max-width: 600px) {
-		padding: 0 20px;
-	}
+	@include mobile;
 	.bank-logo {
-		width: 300px;
-		@media (max-width: 640px) {
-			width: 250px;
-		}
+		width: 250px;
 	}
 	.menu a {
 		color: #eaeaea;
@@ -81,29 +55,15 @@ input:focus {
 
 		&:first-child {
 			margin-left: 2rem;
-			@media (max-width: 750px) {
-				margin: 10px;
-			}
 		}
-		@media (max-width: 830px) {
-			font-size: 1rem;
-			padding: 0 10px;
-			margin: 10px;
-		}
+		@include tablet;
 	}
 }
 
 /* container */
 .container {
 	@include center;
-
-	@media (max-width: 1200px) {
-		padding: 40px;
-	}
-
-	@media (max-width: 600px) {
-		padding: 20px 20px;
-	}
+	@include desktop;
 	.home-wrapper {
 		margin: 5rem;
 		width: 40rem;
@@ -168,8 +128,10 @@ input:focus {
 		border-radius: 10px;
 		.add {
 			background-color: $toss-blue;
-			@media (max-width: 750px) {
+			@include tablet {
+				padding: 0;
 				width: 1.3rem;
+				border-radius: 8px;
 			}
 		}
 	}
@@ -251,10 +213,7 @@ input:focus {
 	display: grid;
 	background-color: #dbeaff;
 	@include item;
-	grid-template-columns: 5% 45% 17% 20% 6% 6%;
-	@media (max-width: 850px) {
-		grid-template-columns: 3% 40% 20% 20% 8% 8%;
-	}
+	grid-template-columns: 5% 45% 17% 18% 7% 7%;
 }
 .drag {
 	@include center;
@@ -269,11 +228,9 @@ input:focus {
 		background-color: transparent;
 		border: transparent;
 		color: $toss-gray;
-		font-size: 0.92rem;
 		font-weight: 700;
-		@media (max-width: 850px) {
-			font-size: 0.65rem;
-		}
+		@include tablet;
+		@include mobile;
 	}
 	select {
 		font-size: 0.75rem;
@@ -284,17 +241,21 @@ input:focus {
 		color: white;
 		cursor: pointer;
 		@include font;
-		@media (max-width: 600px) {
-			font-size: 0.5rem;
+		@include tablet {
+			padding: 0;
+			font-size: 0.65rem;
 		}
 	}
 	.date-input {
 		font-size: 0.8rem;
-		@media (max-width: 1000px) {
+
+		@include desktop {
+			padding: 0;
 			font-size: 0.7rem;
 		}
-		@media (max-width: 700px) {
-			font-size: 0.55rem;
+		@include tablet {
+			padding: 0;
+			font-size: 0.6rem;
 		}
 	}
 }
@@ -309,16 +270,20 @@ button {
 	background-color: green;
 	height: 1.4rem;
 	width: 1.7rem;
-	@media (max-width: 750px) {
+	@include tablet {
+		padding: 0;
 		width: 1.2rem;
+		border-radius: 8px;
 	}
 }
 .delete {
 	background-color: #bf360c;
 	height: 1.4rem;
 	width: 1.7rem;
-	@media (max-width: 750px) {
+	@include tablet {
+		padding: 0;
 		width: 1.2rem;
+		border-radius: 8px;
 	}
 }
 
@@ -334,9 +299,6 @@ button {
 		height: 20rem;
 		margin: 5rem;
 		border-radius: 20px;
-	}
-	.intro.skeleton {
-		height: 230px;
 	}
 
 	.developer {
