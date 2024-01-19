@@ -14,10 +14,10 @@ export default class TodoList extends Component {
 		this.el.classList.add('todo-list')
 		this.el.innerHTML = /*html*/ `
 			<div class="filter">
-				<button class="show-all">전체보기</button>
-				<button class="active">진행중</button>
-				<button class="completed">완료</button>
-				<button class="delete-all">완료 삭제</button>
+				<button type="button" class="show-all">전체보기</button>
+				<button type="button" class="active">진행중</button>
+				<button type="button" class="completed">완료</button>
+				<button type="button" class="delete-all">완료 삭제</button>
 			</div>
 			<div class="todo-item sortable"></div>
     `

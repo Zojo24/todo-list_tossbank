@@ -63,10 +63,13 @@ export default class TodoItem extends Component {
 		})
 
 		const statusInput = this.el.querySelector('.status-input')
+		const undoneOption = statusInput.item(0)
+		const doneOption = statusInput.item(1)
+
 		if (todoItem.done) {
-			statusInput.item(1).selected = 'selected'
+			doneOption.selected = 'selected'
 		} else {
-			statusInput.item(0).selected = 'selected'
+			undoneOption.selected = 'selected'
 		}
 	}
 }
