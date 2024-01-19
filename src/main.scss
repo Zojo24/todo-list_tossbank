@@ -12,9 +12,8 @@ input:focus {
 
 /* loading animation */
 .loader {
-	width: 30px;
-	height: 30px;
-	margin: 30px auto;
+	width: 20px;
+	height: 20px;
 	border: 7px solid $toss-blue;
 	border-top-color: transparent;
 	border-radius: 50%;
@@ -83,37 +82,36 @@ input:focus {
 
 /* Headline Component*/
 .headline .new-task {
-	max-width: 1120px;
-	margin: 1rem;
-	padding: 30px 2rem;
-	background-color: $toss-blue;
-	border-radius: 20px;
-	color: white;
-	display: grid;
-	justify-content: space-between;
-	grid-template-rows: repeat(2, 1fr);
-	grid-template-columns: 55% 23% 10%;
+	@include grid;
+	margin-bottom: 0;
+	padding-top: 1rem;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 	.description {
 		list-style-type: none;
-		padding: 0;
-		margin: 0;
 		display: contents;
 		font-size: 1rem;
 		font-weight: 700;
 	}
 	.description__item {
-		padding: 10px;
 		text-align: center;
-		margin-bottom: 20px;
 	}
 }
 /* AddTodo Component*/
 .add-todo .new-input {
 	list-style-type: none;
 	display: contents;
+	@include grid;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	margin-top: 0;
+	padding-top: 0;
 	.new-input__item {
-		@include center;
-		flex-grow: 1;
+		background-color: white;
+		border-radius: 10px;
+		margin: 0 5px;
+		display: flex;
+		justify-content: center;
 		.task-input,
 		.date-input {
 			@include font;
@@ -125,14 +123,15 @@ input:focus {
 			font-weight: 400;
 			color: gray;
 		}
-		background-color: white;
-		border-radius: 10px;
 		.add {
-			background-color: $toss-blue;
+			background-color: #fff;
+			color: $toss-blue;
 			@include tablet {
-				padding: 0;
 				width: 1.3rem;
 				border-radius: 8px;
+			}
+			&.hide {
+				display: none;
 			}
 		}
 	}

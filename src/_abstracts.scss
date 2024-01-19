@@ -20,3 +20,15 @@ $light-gray: rgb(230, 230, 230);
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
+
+@mixin grid {
+	max-width: 1120px;
+	margin: 1rem;
+	padding: 30px 2rem;
+	background-color: $toss-blue;
+	color: white;
+	display: grid;
+	justify-content: space-between;
+	grid-template-rows: repeat(1, 1fr);
+	grid-template-columns: 55% 23% 10%;
+}

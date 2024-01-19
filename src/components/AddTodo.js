@@ -17,18 +17,23 @@ export default class AddTodo extends Component {
             <input class="date-input" type="date">
           </li>
           <li class="new-input__item">
-            <button type="button" class="add">
+            <button class="add">
               <span class="material-symbols-outlined">add</span>
             </button>
+            <div class="loader hide"></div>
           </li>
         </ul>
       </div>
-      <div class="loader hide"></div>
       `
+
 		const loaderEl = this.el.querySelector('.loader')
-		todoStore.state.loading
-			? loaderEl.classList.remove('hide')
-			: loaderEl.classList.add('hide')
+		const addButton = this.el.querySelector('.add')
+
+		if (todoStore.state.loading) {
+			addButton.classList.add('hide'), loaderEl.classList.remove('hide')
+		} else {
+			loaderEl.classList.add('hide'), addButton.classList.remove('hide')
+		}
 
 		const MAX_INPUT_LENGTH = 13
 		const validateInput = this.el.querySelector('.task-input')
@@ -40,7 +45,6 @@ export default class AddTodo extends Component {
 			}
 		})
 
-		const addButton = this.el.querySelector('.add')
 		const titleSpliter = '##'
 
 		addButton.addEventListener('click', () => {
