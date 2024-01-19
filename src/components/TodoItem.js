@@ -11,7 +11,7 @@ export default class TodoItem extends Component {
 
 		this.el.classList.add('task')
 		this.el.innerHTML = /*html*/ `
-		<h4 class="edit-date">최신 수정일: ${todoItem.updatedAt.substr(0, 10)}</h4>
+		<h4 class="edit-date">최신 수정일: ${todoItem.updatedAt.substring(0, 10)}</h4>
 		<div class="edit-wrapper">
       <ul class="edit-task">
 				<span class="material-symbols-outlined drag">drag_indicator</span>
