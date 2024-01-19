@@ -77,7 +77,7 @@ export default class TodoList extends Component {
 		// 완료항목 일괄 삭제하기//
 		const deleteAllButton = this.el.querySelector('.delete-all')
 		deleteAllButton.addEventListener('click', () => {
-			let arr = []
+			const arr = []
 			const todoId = todoStore.state.todoItems
 				.filter(status => status.done === true)
 				.map(todoId => arr.push(todoId.id))

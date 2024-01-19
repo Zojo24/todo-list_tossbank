@@ -51,6 +51,7 @@ export default class TodoItem extends Component {
 		deleteButton.addEventListener('click', () => deleteTodo(id))
 
 		//항목 수정하기//
+		const titleSpliter = '##'
 		const editButton = this.el.querySelector('.edit')
 		editButton.addEventListener('click', () => {
 			const id = this.el.querySelector('.todo-id').value
@@ -58,7 +59,7 @@ export default class TodoItem extends Component {
 			const dateInput = this.el.querySelector('.date-input').value
 			const doneTemp = this.el.querySelector('.status-input').value
 			const done = doneTemp === 'false'
-			const title = taskInput + '##' + dateInput
+			const title = taskInput + titleSpliter + dateInput
 			updateTodo(id, title, done)
 		})
 

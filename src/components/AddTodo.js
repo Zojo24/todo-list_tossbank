@@ -4,13 +4,20 @@ import todoStore, { createTodo } from '../store/todos'
 export default class AddTodo extends Component {
 	constructor() {
 		super()
-		todoStore.subscribe('loading', () => this.render())
+		todoStore.subscribe('loading', () => {
+			const loaderEl = this.el.querySelector('.loader')
+			const addButton = this.el.querySelector('.addButton')
+			if (todoStore.state.loading) {
+				addButton.classList.add('hide'), loaderEl.classList.remove('hide')
+			} else {
+				addButton.classList.remove('hide'), loaderEl.classList.add('hide')
+			}
+		})
 	}
 	render() {
 		this.el.classList.add('add-todo')
 		this.el.innerHTML = /*html*/ `
       <h1 class="title">Todo List</h1>
-      <div class="loader hide"></div>
       <div class="new-task">
         <ul class="description">
           <li class="description__item">
@@ -29,17 +36,16 @@ export default class AddTodo extends Component {
             <input class="date-input" type="date">
           </li>
           <li class="new-input__item">
-            <button class="add">
-              <span class="material-symbols-outlined">add</span>
-            </button>
+            <div class="loader hide"></div>
+            <div>
+              <button type="button" class="add addButton">
+                <span class="material-symbols-outlined">add</span>
+              </button>
+            </div>
           </li>
         </ul>
       </div>
       `
-		const loaderEl = this.el.querySelector('.loader')
-		todoStore.state.loading
-			? loaderEl.classList.remove('hide')
-			: loaderEl.classList.add('hide')
 
 		const MAX_INPUT_LENGTH = 13
 
@@ -51,10 +57,12 @@ export default class AddTodo extends Component {
 			}
 		})
 		const addButton = this.el.querySelector('.add')
+		const titleSpliter = '##'
+
 		addButton.addEventListener('click', () => {
 			const taskInput = this.el.querySelector('.task-input').value
 			const dateInput = this.el.querySelector('.date-input').value
-			const title = taskInput + '##' + dateInput
+			const title = taskInput + titleSpliter + dateInput
 			createTodo(title)
 		})
 	}
