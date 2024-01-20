@@ -21,12 +21,14 @@ function routeRender(routes) {
 	const hash = location.hash
 	const queryString = location.search
 
-	const query = queryString.split('&').reduce((acc, cur) => {
-		const [key, value] = cur.split('=')
-		acc[key] = value
-		return acc
-	}, {})
-	history.replaceState(query, '')
+	function parseQuery(queryString) {
+		return queryString.split('&').reduce((acc, cur) => {
+			const [key, value] = cur.split('=')
+			acc[key] = value
+			return acc
+		}, {})
+	}
+	history.replaceState(parseQuery(queryString), '')
 
 	const currentRoute = routes.find(route =>
 		new RegExp(`${route.path}/?$`).test(hash)
