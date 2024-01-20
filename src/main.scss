@@ -17,7 +17,7 @@ input:focus {
 	border: 7px solid $toss-blue;
 	border-top-color: transparent;
 	border-radius: 50%;
-	animation: loader 2s infinite linear;
+	animation: loader 3s infinite linear;
 	&.hide {
 		display: none;
 	}
