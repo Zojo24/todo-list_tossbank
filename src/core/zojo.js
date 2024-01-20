@@ -18,7 +18,8 @@ function routeRender(routes) {
 		history.replaceState(null, '', '/#/')
 	}
 	const routerView = document.querySelector('router-view')
-	const [hash, queryString = ''] = location.hash.split('?')
+	const hash = location.hash
+	const queryString = location.search
 
 	const query = queryString.split('&').reduce((acc, cur) => {
 		const [key, value] = cur.split('=')
