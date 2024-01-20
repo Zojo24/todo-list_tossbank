@@ -26,11 +26,16 @@ export const createTodo = async title => {
 //항목 조회하기//
 export const readTodo = async () => {
 	store.state.loading = true
-	const response = await customFetch(`/`, {
-		method: 'GET'
-	})
-	store.state.todoItems = response
-	store.state.loading = false
+	try {
+		const response = await customFetch(`/`, {
+			method: 'GET'
+		})
+		store.state.todoItems = response
+	} catch (error) {
+		console.error('Error in readTodo:', error)
+	} finally {
+		store.state.loading = false
+	}
 }
 //항목 수정하기//
 export const updateTodo = async (id, title, done) => {
