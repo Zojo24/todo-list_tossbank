@@ -33,8 +33,7 @@ export default class TodoList extends Component {
 		allButton.addEventListener('click', () => {
 			const taskActive = this.el.querySelectorAll('.task-active')
 			taskActive.forEach(i => {
-				const itemDisplay =
-					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				const itemDisplay = i.closest('.task')
 				itemDisplay.style.display = 'block'
 			})
 		})
@@ -43,15 +42,12 @@ export default class TodoList extends Component {
 		activeButton.addEventListener('click', () => {
 			const taskActive = this.el.querySelectorAll('.task-active')
 			taskActive.forEach(i => {
-				const itemDisplay =
-					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				const itemDisplay = i.closest('.task')
 				itemDisplay.style.display = 'block'
 			})
 			taskActive.forEach(i => {
-				const itemDisplay =
-					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				const itemDisplay = i.closest('.task')
 				if (!i.selected) {
-					itemDisplay.style.display = 'block'
 					itemDisplay.style.display = 'none'
 				}
 			})
@@ -61,13 +57,11 @@ export default class TodoList extends Component {
 			const taskCompleted = this.el.querySelectorAll('.task-completed')
 			const taskActive = this.el.querySelectorAll('.task-active')
 			taskActive.forEach(i => {
-				const itemDisplay =
-					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				const itemDisplay = i.closest('.task')
 				itemDisplay.style.display = 'block'
 			})
 			taskCompleted.forEach(i => {
-				const itemDisplay =
-					i.parentNode.parentNode.parentNode.parentNode.parentNode
+				const itemDisplay = i.closest('.task')
 				if (!i.selected) {
 					itemDisplay.style.display = 'none'
 				}
@@ -77,11 +71,10 @@ export default class TodoList extends Component {
 		// 완료항목 일괄 삭제하기//
 		const deleteAllButton = this.el.querySelector('.delete-all')
 		deleteAllButton.addEventListener('click', () => {
-			const arr = []
 			const todoId = todoStore.state.todoItems
-				.filter(status => status.done === true)
-				.map(todoId => arr.push(todoId.id))
-			deleteAllTodo(arr)
+				.filter(status => status.done)
+				.map(todoId => todoId.id)
+			deleteAllTodo(todoId)
 		})
 
 		// 항목 순서 바꾸기//
