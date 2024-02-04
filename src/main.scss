@@ -147,11 +147,10 @@ input:focus {
 		justify-content: flex-end;
 		gap: 15px;
 		button {
-			width: 3.2rem;
 			height: 1.5rem;
 			@include font;
 			color: $toss-gray;
-			font-size: 0.5rem;
+			font-size: 0.6rem;
 			font-weight: 700;
 			background-color: $light-gray;
 			border-radius: 34px;
